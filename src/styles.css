@@ -55,59 +55,75 @@
 :root {
   --radius: 0.75rem;
 
-  /* Brand — Primera V2 (Revised Premium Corporate Palette) */
-  --ink: #002D62;                            /* corporate deep blue (primary brand) */
-  --charcoal: #4A4A4A;                       /* charcoal gray */
-  --navy: #002D62;                           /* corporate deep blue */
-  --cream: #FFFFFF;                          /* white base */
-  --soft: #EAECEF;                           /* soft light gray */
-  --gold: #7B1F1C;                           /* primary accent — burgundy (was tan, replaced) */
-  --gold-soft: rgba(123, 31, 28, 0.16);
-  --gold-tan: #AF8A60;                       /* legacy tan retained ONLY for subtle decorative borders */
-  --orange: #7B1F1C;                         /* premium burgundy / deep maroon */
-  --gray-premium: #4A4A4A;
-  --line: rgba(74, 74, 74, 0.16);
+  /* Brand — Primera V3 (Warm Refined Palette) */
+  --ink: #0f0f0f;
+  --charcoal: #3a3530;
+  --navy: #1a1510;
+  --cream: #f8f4e3;
+  --soft: #ede8d9;
+  --gold: #c9a277;
+  --gold-soft: rgba(201, 162, 119, 0.18);
+  --gold-tan: #c9a277;
+  --orange: #c9a277;
+  --gray-premium: #6a6560;
+  --line: rgba(15, 15, 15, 0.12);
 
   /* Shadcn semantic mapping (light) */
-  --background: var(--cream);
-  --foreground: #4A4A4A;
-  --card: #FFFFFF;
-  --card-foreground: #4A4A4A;
-  --popover: #FFFFFF;
-  --popover-foreground: #4A4A4A;
-  --primary: var(--navy);
-  --primary-foreground: #FFFFFF;
-  --secondary: var(--soft);
-  --secondary-foreground: var(--navy);
-  --muted: var(--soft);
-  --muted-foreground: #4A4A4A;
-  --accent: var(--gold);
-  --accent-foreground: var(--navy);
-  --destructive: #7B1F1C;
-  --destructive-foreground: #FFFFFF;
-  --border: var(--line);
-  --input: rgba(74, 74, 74, 0.20);
-  --ring: var(--navy);
+  --background: #f8f4e3;
+  --foreground: #0f0f0f;
+  --card: #ffffff;
+  --card-foreground: #0f0f0f;
+  --popover: #ffffff;
+  --popover-foreground: #0f0f0f;
+  --primary: #0f0f0f;
+  --primary-foreground: #f8f4e3;
+  --secondary: #ede8d9;
+  --secondary-foreground: #0f0f0f;
+  --muted: #ede8d9;
+  --muted-foreground: #6a6560;
+  --accent: #c9a277;
+  --accent-foreground: #0f0f0f;
+  --destructive: #c0392b;
+  --destructive-foreground: #f8f4e3;
+  --border: rgba(15, 15, 15, 0.12);
+  --input: rgba(15, 15, 15, 0.14);
+  --ring: #c9a277;
 }
 
 .dark {
-  --background: var(--ink);
-  --foreground: var(--cream);
-  --card: var(--charcoal);
-  --card-foreground: var(--cream);
-  --popover: var(--charcoal);
-  --popover-foreground: var(--cream);
-  --primary: var(--cream);
-  --primary-foreground: var(--ink);
-  --secondary: oklch(0.22 0 0);
-  --secondary-foreground: var(--cream);
-  --muted: oklch(0.22 0 0);
-  --muted-foreground: oklch(0.70 0 0);
-  --accent: var(--gold);
-  --accent-foreground: var(--ink);
-  --border: oklch(1 0 0 / 0.12);
-  --input: oklch(1 0 0 / 0.15);
-  --ring: var(--gold);
+  color-scheme: dark;
+
+  --ink: #0f0f0f;
+  --charcoal: #c0b8a8;
+  --navy: #1a1510;
+  --cream: #f8f4e3;
+  --soft: #1a1a1a;
+  --gold: #c9a277;
+  --gold-soft: rgba(201, 162, 119, 0.18);
+  --gold-tan: #c9a277;
+  --orange: #c9a277;
+  --gray-premium: #a09880;
+  --line: rgba(255, 255, 255, 0.10);
+
+  --background: #0f0f0f;
+  --foreground: #f8f4e3;
+  --card: #141414;
+  --card-foreground: #f8f4e3;
+  --popover: #1e1e1e;
+  --popover-foreground: #f8f4e3;
+  --primary: #f8f4e3;
+  --primary-foreground: #0f0f0f;
+  --secondary: #1e1e1e;
+  --secondary-foreground: #f8f4e3;
+  --muted: #1a1a1a;
+  --muted-foreground: rgba(248, 244, 227, 0.55);
+  --accent: #c9a277;
+  --accent-foreground: #0f0f0f;
+  --destructive: #c0392b;
+  --destructive-foreground: #f8f4e3;
+  --border: rgba(255, 255, 255, 0.10);
+  --input: rgba(255, 255, 255, 0.12);
+  --ring: #c9a277;
 }
 
 @layer base {
@@ -155,7 +171,7 @@
   }
 
   .gold-glow {
-    box-shadow: 0 0 0 1px rgba(255,215,0,0.18), 0 20px 60px -20px rgba(255,215,0,0.18);
+    box-shadow: 0 0 0 1px rgba(201,162,119,0.18), 0 20px 60px -20px rgba(201,162,119,0.18);
   }
 
   .lift { transition: transform .5s cubic-bezier(0.16,1,0.3,1), box-shadow .5s cubic-bezier(0.16,1,0.3,1), border-color .3s; }
@@ -181,6 +197,13 @@
     height: 1px;
   }
 }
+
+/* Dark mode overrides for hardcoded Tailwind colors — outside layers to win cascade */
+.dark .bg-white { background-color: #141414; }
+.dark .text-navy { color: #e8ddd0; }
+.dark .text-charcoal { color: #c0b8a8; }
+.dark .ring-white { --tw-ring-color: #141414; }
+.dark .border-white { border-color: rgba(255,255,255,0.12); }
 
 @media (prefers-reduced-motion: reduce) {
   *, *::before, *::after { animation: none !important; transition: none !important; }
