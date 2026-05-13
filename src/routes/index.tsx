@@ -9,6 +9,13 @@ import { useState } from "react";
 import heroImg from "@/assets/hero-corporate.jpg";
 import impactImg from "@/assets/impact-workshop.jpg";
 import programsImg from "@/assets/programs-leadership.jpg";
+import teamOkiImg from "@/assets/team-oki.png";
+import teamWismanImg from "@/assets/team-wisman.png";
+
+const TEAM_PHOTOS: Record<string, string> = {
+  "Oki T. Wikan": teamOkiImg,
+  "Dr. Jisman M. Lubis": teamWismanImg,
+};
 import {
   SITE, SERVICES, PROBLEMS, IMPACT_STEPS, PROGRAM_CATEGORIES, INDUSTRY_CLIENTS,
   LEADERSHIP, CREDENTIALS, INSIGHTS, TRUST_STRIP,
@@ -565,7 +572,7 @@ function LeadershipPreview() {
 
         <div className="mt-14 grid sm:grid-cols-2 lg:grid-cols-4 gap-5">
           {featured.map((p, i) => (
-            <LeadershipCard key={p.name} leader={p} delay={i * 0.06} />
+            <LeadershipCard key={p.name} leader={{ ...p, photo: TEAM_PHOTOS[p.name] }} delay={i * 0.06} />
           ))}
         </div>
       </div>

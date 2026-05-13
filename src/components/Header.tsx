@@ -3,6 +3,7 @@ import { useEffect, useState } from "react";
 import { Menu, X, ArrowUpRight, Phone, Mail, Sun, Moon } from "lucide-react";
 import { NAV, SITE } from "@/lib/site";
 import logo from "@/assets/primera-logo.png";
+import logoPrmr from "@/assets/primera-logo-prmr.png";
 
 const SUBMENUS: Record<string, { label: string; to: string; desc?: string }[]> = {
   "/about": [
@@ -104,11 +105,12 @@ export function Header() {
 
       <div className="container-x flex items-center justify-between h-16 md:h-[72px]">
         <Link to="/" className="flex items-center gap-3 shrink-0" aria-label={SITE.name}>
-          <img
-            src={logo}
-            alt={`${SITE.short} logo`}
-            className={`h-9 md:h-11 w-auto object-contain transition ${transparent ? "brightness-0 invert" : "dark:brightness-0 dark:invert"}`}
-          />
+          {/* Light mode + white navbar → pakai logo prmr berwarna; selainnya invert ke putih */}
+          {!transparent && theme === "light" ? (
+            <img src={logoPrmr} alt={`${SITE.short} logo`} className="h-9 md:h-11 w-auto object-contain" />
+          ) : (
+            <img src={logo} alt={`${SITE.short} logo`} className="h-9 md:h-11 w-auto object-contain brightness-0 invert" />
+          )}
           <div className="hidden sm:flex flex-col leading-tight">
             <span className={`font-display text-[13px] tracking-[0.16em] uppercase font-bold ${wordmarkColor}`}>Primera Karya Sinergia</span>
             <span className="text-[9px] tracking-[0.28em] uppercase text-gold font-semibold">Empowering · Elevating</span>
