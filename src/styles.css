@@ -61,10 +61,10 @@
   --navy: #1a1510;
   --cream: #f8f4e3;
   --soft: #ede8d9;
-  --gold: #c9a277;
-  --gold-soft: rgba(201, 162, 119, 0.18);
-  --gold-tan: #c9a277;
-  --orange: #c9a277;
+  --gold: #c9a227;
+  --gold-soft: rgba(201, 162, 39, 0.18);
+  --gold-tan: #c9a227;
+  --orange: #c9a227;
   --gray-premium: #6a6560;
   --line: rgba(15, 15, 15, 0.12);
 
@@ -98,10 +98,10 @@
   --navy: #1a1510;
   --cream: #f8f4e3;
   --soft: #1a1a1a;
-  --gold: #c9a277;
-  --gold-soft: rgba(201, 162, 119, 0.18);
-  --gold-tan: #c9a277;
-  --orange: #c9a277;
+  --gold: #c9a227;
+  --gold-soft: rgba(201, 162, 39, 0.18);
+  --gold-tan: #c9a227;
+  --orange: #c9a227;
   --gray-premium: #a09880;
   --line: rgba(255, 255, 255, 0.10);
 
@@ -171,7 +171,7 @@
   }
 
   .gold-glow {
-    box-shadow: 0 0 0 1px rgba(201,162,119,0.18), 0 20px 60px -20px rgba(201,162,119,0.18);
+    box-shadow: 0 0 0 1px rgba(201,162,39,0.18), 0 20px 60px -20px rgba(201,162,39,0.18);
   }
 
   .lift { transition: transform .5s cubic-bezier(0.16,1,0.3,1), box-shadow .5s cubic-bezier(0.16,1,0.3,1), border-color .3s; }
