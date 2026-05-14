@@ -55,7 +55,7 @@ export function Footer() {
         <div className="grid lg:grid-cols-12 gap-10 lg:gap-8">
           <div className="lg:col-span-4">
             <div className="flex items-center gap-3">
-              <img src={logo} alt={SITE.short} className="h-10 w-auto bg-white rounded-md p-1" />
+              <img src={logo} alt={SITE.short} className="h-10 w-auto brightness-0 invert" />
               <div>
                 <p className="font-display text-sm tracking-[0.16em] uppercase font-bold">Primera Karya Sinergia</p>
                 <p className="text-[10px] tracking-[0.28em] uppercase text-gold font-semibold">Empowering · Elevating</p>
