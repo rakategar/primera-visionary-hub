@@ -1,7 +1,9 @@
 import { Link, useLocation } from "@tanstack/react-router";
 import { useEffect, useState } from "react";
-import { Menu, X, ArrowUpRight, Phone, Mail, Sun, Moon } from "lucide-react";
+import { Menu, X, ArrowUpRight, Phone, Mail } from "lucide-react";
 import { NAV, SITE } from "@/lib/site";
+import { useTheme } from "@/lib/theme";
+import { useLang } from "@/lib/i18n";
 import logo from "@/assets/primera-logo.png";
 import logoPrmr from "@/assets/primera-logo-prmr.png";
 
@@ -45,15 +47,11 @@ export function Header() {
   const [open, setOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
   const [hover, setHover] = useState<string | null>(null);
-  const [theme, setTheme] = useState<"dark" | "light">("dark");
+  const { theme } = useTheme();
+  const { t } = useLang();
   const loc = useLocation();
   const isHome = loc.pathname === "/";
   const transparent = isHome && !scrolled;
-
-  useEffect(() => {
-    const saved = localStorage.getItem("pks-theme") || "dark";
-    setTheme(saved as "dark" | "light");
-  }, []);
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 12);
@@ -63,14 +61,6 @@ export function Header() {
   }, []);
 
   useEffect(() => { setOpen(false); setHover(null); }, [loc.pathname]);
-
-  const toggleTheme = () => {
-    const next = theme === "dark" ? "light" : "dark";
-    setTheme(next);
-    document.documentElement.classList.remove("dark", "light");
-    document.documentElement.classList.add(next);
-    localStorage.setItem("pks-theme", next);
-  };
 
   const linkColor = transparent
     ? "text-white/90 hover:text-white"
@@ -98,14 +88,13 @@ export function Header() {
             </a>
           </div>
           <div className={`tracking-[0.22em] uppercase font-semibold ${transparent ? "text-white/60" : "text-navy/55 dark:text-cream/50"}`}>
-            <span className="text-gold">●</span> {SITE.positioning}
+            <span className="text-gold">●</span> {t("header.positioning")}
           </div>
         </div>
       </div>
 
       <div className="container-x flex items-center justify-between h-16 md:h-[72px]">
         <Link to="/" className="flex items-center gap-3 shrink-0" aria-label={SITE.name}>
-          {/* Light mode + white navbar → pakai logo prmr berwarna; selainnya invert ke putih */}
           {!transparent && theme === "light" ? (
             <img src={logoPrmr} alt={`${SITE.short} logo`} className="h-9 md:h-11 w-auto object-contain" />
           ) : (
@@ -131,7 +120,7 @@ export function Header() {
                     aria-expanded={hover === n.to}
                     className={`px-3.5 py-2 text-[13px] font-medium transition-colors gold-underline ${linkColor}`}
                   >
-                    {n.label}
+                    {t(`nav.${n.to}`)}
                   </button>
                 ) : (
                   <Link
@@ -140,19 +129,19 @@ export function Header() {
                     activeProps={{ className: `font-semibold text-gold` }}
                     activeOptions={{ exact: n.to === "/" }}
                   >
-                    {n.label}
+                    {t(`nav.${n.to}`)}
                   </Link>
                 )}
                 {sub && hover === n.to && (
                   <div className="absolute top-full left-0 pt-3 w-80 z-50">
                     <div className="rounded-xl bg-white dark:bg-[#1e1e1e] border border-line shadow-2xl p-2">
-                      {sub.map((s) => (
+                      {sub.map((s, si) => (
                         <a key={s.to} href={s.to} className="block px-3 py-2.5 rounded-lg hover:bg-soft dark:hover:bg-[#2a2a2a] transition group">
                           <div className="flex items-center justify-between">
-                            <span className="text-sm font-semibold text-navy dark:text-cream group-hover:text-gold transition">{s.label}</span>
+                            <span className="text-sm font-semibold text-navy dark:text-cream group-hover:text-gold transition">{t(`sub.${n.to}.${si}`)}</span>
                             <ArrowUpRight className="h-3.5 w-3.5 text-gold opacity-0 group-hover:opacity-100 transition" />
                           </div>
-                          {s.desc && <p className="text-[11px] text-charcoal/70 dark:text-cream/50 mt-0.5">{s.desc}</p>}
+                          {s.desc && <p className="text-[11px] text-charcoal/70 dark:text-cream/50 mt-0.5">{t(`sub.${n.to}.${si}.desc`)}</p>}
                         </a>
                       ))}
                     </div>
@@ -164,20 +153,6 @@ export function Header() {
         </nav>
 
         <div className="flex items-center gap-2">
-          {/* Theme toggle */}
-          <button
-            type="button"
-            onClick={toggleTheme}
-            aria-label={theme === "dark" ? "Switch to light mode" : "Switch to dark mode"}
-            className={`h-9 w-9 inline-flex items-center justify-center rounded-full border transition-colors ${
-              transparent
-                ? "border-white/40 text-white hover:bg-white/10"
-                : "border-line text-navy dark:text-cream hover:bg-soft dark:hover:bg-[#1e1e1e]"
-            }`}
-          >
-            {theme === "dark" ? <Sun className="h-4 w-4" /> : <Moon className="h-4 w-4" />}
-          </button>
-
           <Link
             to="/contact"
             className={`hidden sm:inline-flex items-center gap-1.5 rounded-full px-4 md:px-5 py-2.5 text-xs md:text-[13px] font-semibold transition-all border ${
@@ -186,7 +161,7 @@ export function Header() {
                 : "bg-gradient-to-r from-navy to-charcoal dark:from-gold dark:to-gold/80 text-white dark:text-navy border-gold/30 hover:shadow-lg hover:-translate-y-0.5"
             }`}
           >
-            Schedule Consultation <ArrowUpRight className="h-3.5 w-3.5" />
+            {t("header.cta")} <ArrowUpRight className="h-3.5 w-3.5" />
           </Link>
           <button
             onClick={() => setOpen((v) => !v)}
@@ -220,14 +195,14 @@ export function Header() {
                     className="w-full flex items-center justify-between py-3 text-base font-display tracking-wide text-navy dark:text-cream/85"
                     aria-expanded={isOpen}
                   >
-                    {n.label}
+                    {t(`nav.${n.to}`)}
                     <span className={`transition-transform ${isOpen ? "rotate-180" : ""}`}>▾</span>
                   </button>
                   {isOpen && (
                     <div className="pb-3 pl-3 flex flex-col gap-1">
-                      {sub.map((s) => (
+                      {sub.map((s, si) => (
                         <a key={s.to} href={s.to} className="py-2 text-sm text-charcoal dark:text-cream/70 hover:text-gold transition">
-                          {s.label}
+                          {t(`sub.${n.to}.${si}`)}
                         </a>
                       ))}
                     </div>
@@ -242,27 +217,18 @@ export function Header() {
                 className="py-3 text-base font-display tracking-wide text-navy dark:text-cream/85 hover:text-gold border-b border-line/60"
                 activeProps={{ className: "text-gold font-semibold" }}
               >
-                {n.label}
+                {t(`nav.${n.to}`)}
               </Link>
             );
           })}
           <div className="mt-4 grid grid-cols-2 gap-2">
             <Link to="/contact" className="inline-flex items-center justify-center gap-1.5 rounded-full bg-gold text-navy px-5 py-3 text-xs font-semibold">
-              Consultation <ArrowUpRight className="h-3.5 w-3.5" />
+              {t("header.cta")} <ArrowUpRight className="h-3.5 w-3.5" />
             </Link>
             <a href={`https://wa.me/${SITE.whatsapp}`} target="_blank" rel="noopener noreferrer" className="inline-flex items-center justify-center gap-1.5 rounded-full border border-gold/40 text-navy dark:text-cream px-5 py-3 text-xs font-semibold">
               <Phone className="h-3.5 w-3.5" /> WhatsApp
             </a>
           </div>
-          {/* Mobile theme toggle */}
-          <button
-            type="button"
-            onClick={toggleTheme}
-            className="mt-2 flex items-center gap-2 py-2.5 text-sm text-charcoal dark:text-cream/70 hover:text-gold transition"
-          >
-            {theme === "dark" ? <Sun className="h-4 w-4" /> : <Moon className="h-4 w-4" />}
-            {theme === "dark" ? "Switch to Light Mode" : "Switch to Dark Mode"}
-          </button>
         </div>
       </div>
     </header>

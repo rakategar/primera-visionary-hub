@@ -2,6 +2,9 @@ import { Outlet, Link, createRootRoute, HeadContent, Scripts, useLocation } from
 import appCss from "../styles.css?url";
 import { Header } from "@/components/Header";
 import { Footer } from "@/components/Footer";
+import { FloatingThemeToggle } from "@/components/FloatingThemeToggle";
+import { ThemeProvider } from "@/lib/theme";
+import { LanguageProvider } from "@/lib/i18n";
 
 function NotFoundComponent() {
   return (
@@ -56,10 +59,13 @@ function RootComponent() {
   const loc = useLocation();
   const isHome = loc.pathname === "/";
   return (
-    <>
-      <Header />
-      <main className={isHome ? "" : "pt-[88px] md:pt-[112px]"}><Outlet /></main>
-      <Footer />
-    </>
+    <ThemeProvider>
+      <LanguageProvider>
+        <FloatingThemeToggle />
+        <Header />
+        <main className={isHome ? "" : "pt-[88px] md:pt-[112px]"}><Outlet /></main>
+        <Footer />
+      </LanguageProvider>
+    </ThemeProvider>
   );
 }
