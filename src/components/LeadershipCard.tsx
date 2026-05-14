@@ -15,7 +15,7 @@ function initials(name: string) {
 export function LeadershipCard({ leader, delay = 0 }: { leader: Leader; delay?: number }) {
   return (
     <Reveal delay={delay}>
-      <article className="group h-full overflow-hidden rounded-2xl bg-white border border-line shadow-[0_4px_24px_-12px_rgba(0,45,98,0.18)] transition hover:-translate-y-1 hover:shadow-[0_18px_44px_-18px_rgba(123,31,28,0.35)] hover:border-orange/40">
+      <article className="group h-full overflow-hidden rounded-2xl bg-white dark:bg-[#141414] border border-line shadow-[0_4px_24px_-12px_rgba(0,45,98,0.18)] dark:shadow-[0_4px_24px_-12px_rgba(0,0,0,0.5)] transition hover:-translate-y-1 hover:shadow-[0_18px_44px_-18px_rgba(201,162,39,0.35)] hover:border-gold/40">
         {/* Photo area — vertical 4:5 */}
         <div className="relative w-full aspect-[4/5] bg-gradient-to-br from-navy via-navy to-charcoal overflow-hidden">
           {leader.photo ? (
@@ -34,9 +34,9 @@ export function LeadershipCard({ leader, delay = 0 }: { leader: Leader; delay?: 
 
         <div className="p-6">
           <p className="text-[10px] uppercase tracking-[0.2em] font-bold text-orange">{leader.role}</p>
-          <h3 className="mt-2 font-display text-lg text-navy font-bold leading-tight">{leader.name}</h3>
-          <p className="mt-3 text-[11px] text-charcoal/70 uppercase tracking-wider font-semibold">{leader.credentials}</p>
-          <p className="mt-3 text-sm text-charcoal leading-relaxed">{leader.expertise}</p>
+          <h3 className="mt-2 font-display text-lg text-navy dark:text-cream font-bold leading-tight">{leader.name}</h3>
+          <p className="mt-3 text-[11px] text-charcoal/70 dark:text-cream/50 uppercase tracking-wider font-semibold">{leader.credentials}</p>
+          <p className="mt-3 text-sm text-charcoal dark:text-cream/75 leading-relaxed">{leader.expertise}</p>
         </div>
       </article>
     </Reveal>

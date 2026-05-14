@@ -2,8 +2,8 @@ import { createFileRoute } from "@tanstack/react-router";
 import { SubpageHero, SubpageCTA } from "@/components/SubpageHero";
 import { Reveal } from "@/components/Reveal";
 import { SectionLabel } from "@/components/SectionLabel";
-import { LeadershipCard } from "@/components/LeadershipCard";
-import { LEADERSHIP, CREDENTIALS } from "@/lib/site";
+import { LeadershipTieredSection } from "@/components/LeadershipTieredSection";
+import { CREDENTIALS } from "@/lib/site";
 import hero from "@/assets/about-leadership.jpg";
 
 export const Route = createFileRoute("/about/leadership-facilitators")({
@@ -53,16 +53,14 @@ function LeadershipPage() {
         </div>
       </section>
 
-      <section className="bg-soft py-20 md:py-24">
+      <section className="bg-soft dark:bg-[#111111] py-20 md:py-24">
         <div className="container-x">
           <Reveal>
-            <SectionLabel gold>Advisors & Facilitators</SectionLabel>
-            <h2 className="mt-5 font-display text-3xl md:text-5xl text-navy font-extrabold max-w-3xl">Senior advisors with board-level experience.</h2>
+            <SectionLabel gold>Tim Kami</SectionLabel>
+            <h2 className="mt-5 font-display text-3xl md:text-5xl text-navy dark:text-cream font-extrabold max-w-3xl">Praktisi berpengalaman, advisor senior, dan fasilitator bersertifikat.</h2>
           </Reveal>
-          <div className="mt-12 grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
-            {LEADERSHIP.map((p, i) => (
-              <LeadershipCard key={p.name} leader={p} delay={i * 0.05} />
-            ))}
+          <div className="mt-12">
+            <LeadershipTieredSection />
           </div>
         </div>
       </section>
