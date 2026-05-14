@@ -13,8 +13,8 @@ import teamOkiImg from "@/assets/team-oki.png";
 import teamWismanImg from "@/assets/team-wisman.png";
 
 const TEAM_PHOTOS: Record<string, string> = {
-  "Oki T. Wikan": teamOkiImg,
-  "Dr. Jisman M. Lubis": teamWismanImg,
+  "Oki T. Wikan": teamWismanImg,
+  "Dr. Jisman M. Lubis": teamOkiImg,
 };
 import {
   SITE, SERVICES, PROBLEMS, IMPACT_STEPS, PROGRAM_CATEGORIES, INDUSTRY_CLIENTS,

@@ -1,6 +1,6 @@
 import { Link, useLocation } from "@tanstack/react-router";
 import { useEffect, useState } from "react";
-import { Menu, X, ArrowUpRight, Phone, Mail } from "lucide-react";
+import { Menu, X, ArrowUpRight, Phone, Mail, Sun, Moon, Globe } from "lucide-react";
 import { NAV, SITE } from "@/lib/site";
 import { useTheme } from "@/lib/theme";
 import { useLang } from "@/lib/i18n";
@@ -47,8 +47,8 @@ export function Header() {
   const [open, setOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
   const [hover, setHover] = useState<string | null>(null);
-  const { theme } = useTheme();
-  const { t } = useLang();
+  const { theme, toggleTheme } = useTheme();
+  const { t, lang, setLang } = useLang();
   const loc = useLocation();
   const isHome = loc.pathname === "/";
   const transparent = isHome && !scrolled;
@@ -228,6 +228,26 @@ export function Header() {
             <a href={`https://wa.me/${SITE.whatsapp}`} target="_blank" rel="noopener noreferrer" className="inline-flex items-center justify-center gap-1.5 rounded-full border border-gold/40 text-navy dark:text-cream px-5 py-3 text-xs font-semibold">
               <Phone className="h-3.5 w-3.5" /> WhatsApp
             </a>
+          </div>
+
+          {/* Mobile language + theme controls */}
+          <div className="mt-3 pt-3 border-t border-line/60 flex items-center justify-between">
+            <button
+              type="button"
+              onClick={() => setLang(lang === "id" ? "en" : "id")}
+              className="inline-flex items-center gap-2 py-2 text-sm text-charcoal dark:text-cream/70 hover:text-gold transition font-semibold"
+            >
+              <Globe className="h-4 w-4" />
+              {lang === "id" ? "English" : "Bahasa Indonesia"}
+            </button>
+            <button
+              type="button"
+              onClick={toggleTheme}
+              className="inline-flex items-center gap-2 py-2 text-sm text-charcoal dark:text-cream/70 hover:text-gold transition"
+            >
+              {theme === "dark" ? <Sun className="h-4 w-4" /> : <Moon className="h-4 w-4" />}
+              {theme === "dark" ? "Light Mode" : "Dark Mode"}
+            </button>
           </div>
         </div>
       </div>

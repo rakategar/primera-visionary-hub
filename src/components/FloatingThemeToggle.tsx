@@ -12,7 +12,7 @@ export function FloatingThemeToggle() {
   const style = theme === "dark" ? dark : light;
 
   return (
-    <div className="fixed top-1 right-3 z-[60] flex items-center gap-1">
+    <div className="fixed top-1 right-3 z-[60] hidden md:flex items-center gap-1">
       {/* Language toggle — left of theme toggle */}
       <button
         type="button"
