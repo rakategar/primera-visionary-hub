@@ -1,11 +1,10 @@
 import { useState } from "react";
 import { ChevronDown, ChevronUp } from "lucide-react";
 import { LeadershipCard } from "@/components/LeadershipCard";
-import { Reveal } from "@/components/Reveal";
 import { useLang } from "@/lib/i18n";
 
 /* ─── Photo imports ─────────────────────────────────────────────── */
-import okiPhoto from "@/assets/team-wisman.png";          // confirmed correct
+import okiPhoto from "@/assets/team-wisman.png";
 
 import advisorJismanPhoto from "@/assets/team/advisor-jisman.jpg";
 import advisorPaulaPhoto from "@/assets/team/advisor-paula.jpg";
@@ -47,7 +46,6 @@ const ASSOCIATES: Leader[] = [
   { name: "Dheta Arlinta, EPC",     role: "Associate",             credentials: "Ericson Coach (ICF) · TASC Certified",                   expertise: "Coaching · Personal Development",                photo: assocDhetaPhoto },
   { name: "Rastiti Yulinda, CGHCM", role: "Associate",             credentials: "CGHCM · Coach Certification · Trainer BNSP",             expertise: "Human Resources · Coaching · Training",          photo: assocRastitiPhoto },
   { name: "Renovan Nache",          role: "Associate",             credentials: "Impactful Communication · Charming Business Attitude",   expertise: "Communication · L&D",                           photo: assocRenovanPhoto },
-  // last 3 — Faisal, Joe, Dede
   { name: "Faisal Maulana",         role: "Associate Facilitator", credentials: "Certified Master Trainer · ADDIE · Kirkpatrick L1–4",    expertise: "Training Design · Learning Evaluation",          photo: assocFaisalPhoto },
   { name: "Joe Yudha",              role: "Associate",             credentials: "Ericson Coach (ICF) · TASC Certified",                   expertise: "Coaching · Personal Development",                photo: assocJoePhoto },
   { name: "Dede Dermawan",          role: "Associate",             credentials: "Digital Transformation & AI Enablement",                 expertise: "Digital Innovation · Business Automation",       photo: assocDedePhoto },
@@ -61,30 +59,6 @@ function TierDivider({ label }: { label: string }) {
       <span className="text-[10px] uppercase tracking-[0.22em] font-bold text-gold shrink-0">{label}</span>
       <div className="h-px flex-1 bg-gradient-to-l from-gold/35 via-line to-transparent" />
     </div>
-  );
-}
-
-/* ─── Director featured card (horizontal) ───────────────────────── */
-function DirectorCard({ leader }: { leader: Leader }) {
-  return (
-    <Reveal>
-      <article className="relative rounded-2xl overflow-hidden bg-white dark:bg-[#141414] border border-gold/30 shadow-[0_4px_32px_-12px_rgba(201,162,39,0.22)] flex flex-col sm:flex-row max-w-2xl mx-auto">
-        {/* Accent top line */}
-        <div className="absolute top-0 inset-x-0 h-px bg-gradient-to-r from-transparent via-gold to-transparent" />
-        {/* Photo */}
-        <div className="sm:w-52 w-full aspect-[3/2] sm:aspect-auto shrink-0 bg-gradient-to-br from-navy via-navy to-charcoal relative overflow-hidden">
-          <img src={leader.photo} alt={leader.name} className="absolute inset-0 w-full h-full object-cover object-top" />
-          <div className="absolute bottom-0 left-0 right-0 h-1 bg-gradient-to-r from-orange via-orange to-gold" />
-        </div>
-        {/* Info */}
-        <div className="p-7 flex flex-col justify-center gap-2">
-          <p className="text-[10px] uppercase tracking-[0.22em] font-bold text-orange">{leader.role}</p>
-          <h3 className="font-display text-2xl md:text-3xl text-navy dark:text-cream font-bold leading-tight">{leader.name}</h3>
-          <p className="text-[11px] text-charcoal/65 dark:text-cream/50 uppercase tracking-wider font-semibold">{leader.credentials}</p>
-          <p className="text-sm text-charcoal dark:text-cream/75 leading-relaxed">{leader.expertise}</p>
-        </div>
-      </article>
-    </Reveal>
   );
 }
 
@@ -104,7 +78,11 @@ export function LeadershipTieredSection() {
       {/* ── Tier 1: Director ── */}
       <div className="space-y-6">
         <TierDivider label={labelDirector} />
-        <DirectorCard leader={DIRECTOR[0]} />
+        <div className="flex justify-center">
+          <div className="w-full max-w-[240px]">
+            <LeadershipCard leader={DIRECTOR[0]} />
+          </div>
+        </div>
       </div>
 
       {/* ── Tier 2: Senior Advisors ── */}

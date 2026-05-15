@@ -5,6 +5,19 @@ import { VALUES, LEADERSHIP, CREDENTIALS, SITE } from "@/lib/site";
 import { Reveal } from "@/components/Reveal";
 import { SectionLabel } from "@/components/SectionLabel";
 import { LeadershipCard } from "@/components/LeadershipCard";
+import teamWismanImg from "@/assets/team-wisman.png";
+import advisorJismanImg from "@/assets/team/advisor-jisman.jpg";
+import advisorPaulaImg from "@/assets/team/advisor-paula.jpg";
+import advisorKartonoImg from "@/assets/team/advisor-kartono.jpg";
+import advisorArikeImg from "@/assets/team/advisor-arike.jpg";
+
+const ABOUT_PHOTOS: Record<string, string> = {
+  "Oki T. Wikan": teamWismanImg,
+  "Dr. Jisman M. Lubis": advisorJismanImg,
+  "Ir. Paula Sembiring": advisorPaulaImg,
+  "Kartono": advisorKartonoImg,
+  "Arike Agung Widjaja": advisorArikeImg,
+};
 
 export const Route = createFileRoute("/about")({
   head: () => ({
@@ -139,7 +152,7 @@ function AboutPage() {
           </Reveal>
           <div className="mt-14 grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
             {LEADERSHIP.map((p, i) => (
-              <LeadershipCard key={p.name} leader={p} delay={i * 0.05} />
+              <LeadershipCard key={p.name} leader={{ ...p, photo: ABOUT_PHOTOS[p.name] }} delay={i * 0.05} />
             ))}
           </div>
           <Reveal delay={0.2}>

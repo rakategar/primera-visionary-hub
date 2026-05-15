@@ -9,12 +9,16 @@ import { useState } from "react";
 import heroImg from "@/assets/hero-corporate.jpg";
 import impactImg from "@/assets/impact-workshop.jpg";
 import programsImg from "@/assets/programs-leadership.jpg";
-import teamOkiImg from "@/assets/team-oki.png";
 import teamWismanImg from "@/assets/team-wisman.png";
+import advisorJismanImg from "@/assets/team/advisor-jisman.jpg";
+import advisorPaulaImg from "@/assets/team/advisor-paula.jpg";
+import advisorKartonoImg from "@/assets/team/advisor-kartono.jpg";
 
 const TEAM_PHOTOS: Record<string, string> = {
   "Oki T. Wikan": teamWismanImg,
-  "Dr. Jisman M. Lubis": teamOkiImg,
+  "Dr. Jisman M. Lubis": advisorJismanImg,
+  "Ir. Paula Sembiring": advisorPaulaImg,
+  "Kartono": advisorKartonoImg,
 };
 import {
   SITE, SERVICES, PROBLEMS, IMPACT_STEPS, PROGRAM_CATEGORIES, INDUSTRY_CLIENTS,
