@@ -102,7 +102,7 @@ function ClientsPage() {
               <p className="mt-3 text-white/70 text-sm leading-relaxed">
                 Detailed case studies with client outcomes are shared confidentially upon request, in line with client confidentiality agreements.
               </p>
-              <Link to="/contact" className="mt-6 inline-flex items-center gap-2 rounded-full bg-gold text-navy px-5 py-2.5 text-sm font-bold hover:bg-white transition">
+              <Link to="/contact" className="mt-6 inline-flex items-center gap-2 rounded-full bg-gold text-navy px-5 py-2.5 text-sm font-bold hover:bg-cream dark:hover:bg-gold/70 transition">
                 Request Case Studies <ArrowRight className="h-4 w-4" />
               </Link>
             </div>

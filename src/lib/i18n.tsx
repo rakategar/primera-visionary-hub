@@ -112,7 +112,7 @@ const T: Record<Lang, Record<string, string>> = {
     "home.hero.h1a": "Memberdayakan",
     "home.hero.h1b": "Orang.",
     "home.hero.h1c": "Meningkatkan Kinerja.",
-    "home.hero.body": "Primera Karya Sinergia membantu organisasi bertumbuh melalui pengalaman pembelajaran yang praktis, relevan, dan berdampak — dari kepemimpinan dan soft skills hingga kemampuan penjualan, pengembangan bakat, dan transformasi kinerja berbasis digital.",
+    "home.hero.body": "Primera Karya Sinergia membantu organisasi bertumbuh melalui pengalaman pembelajaran yang praktis, relevan dan berdampak — dari kepemimpinan dan soft skills hingga kemampuan penjualan, pengembangan bakat dan transformasi kinerja berbasis digital.",
     "home.hero.cta1": "Jadwalkan Konsultasi Strategis",
     "home.hero.cta2": "Jelajahi Layanan Kami",
     "home.hero.strip": "Kepemimpinan · Kemampuan Penjualan · Pengembangan Bakat · Pembelajaran Digital · CRM ACT",
@@ -120,7 +120,7 @@ const T: Record<Lang, Record<string, string>> = {
     // Homepage — WhatWeDo
     "home.whatwedo.label": "Yang Kami Lakukan",
     "home.whatwedo.h2": "Solusi pembelajaran dan konsultasi yang praktis",
-    "home.whatwedo.body": "Dirancang untuk membangun kemampuan SDM, meningkatkan kinerja, dan menciptakan dampak bisnis terukur — di enam area praktik terintegrasi.",
+    "home.whatwedo.body": "Dirancang untuk membangun kemampuan SDM, meningkatkan kinerja dan menciptakan dampak bisnis terukur — di enam area praktik terintegrasi.",
     "home.whatwedo.cta": "Lihat Program",
 
     // Homepage — Problems
@@ -133,7 +133,7 @@ const T: Record<Lang, Record<string, string>> = {
     "home.deliver.label": "Cara Kami Memberikan Dampak",
     "home.deliver.h2a": "Dari pembelajaran ke",
     "home.deliver.h2b": "dampak kinerja",
-    "home.deliver.body": "Proses pembelajaran terstruktur sebelum, selama, dan sesudah pelatihan — dengan evaluasi komprehensif untuk memastikan dampak kinerja yang terukur.",
+    "home.deliver.body": "Proses pembelajaran terstruktur sebelum, selama dan sesudah pelatihan — dengan evaluasi komprehensif untuk memastikan dampak kinerja yang terukur.",
     "home.deliver.cta": "Lihat Metodologi",
     "home.deliver.kirkpatrick": "Reaksi → Pembelajaran → Perilaku → Hasil Bisnis",
 
@@ -141,11 +141,11 @@ const T: Record<Lang, Record<string, string>> = {
     "home.why.label": "Mengapa Pilih Primera",
     "home.why.h2": "Dibangun di atas tiga pilar kepercayaan",
     "home.why.p0t": "Solusi Menyeluruh",
-    "home.why.p0d": "Dari rekrutmen hingga pengembangan kemampuan berkelanjutan — Primera memberikan proses pembelajaran terstruktur sebelum, selama, dan sesudah pelatihan, lengkap dengan evaluasi komprehensif untuk memastikan dampak kinerja yang terukur.",
+    "home.why.p0d": "Dari rekrutmen hingga pengembangan kemampuan berkelanjutan — Primera memberikan proses pembelajaran terstruktur sebelum, selama dan sesudah pelatihan, lengkap dengan evaluasi komprehensif untuk memastikan dampak kinerja yang terukur.",
     "home.why.p1t": "Tim Bersertifikat",
-    "home.why.p1d": "Profesional berlisensi dengan CFP®, Manajemen Kekayaan, dan praktisi soft skills bersertifikat — didukung pengalaman mendalam di BFSI dan konsultasi.",
+    "home.why.p1d": "Profesional berlisensi dengan CFP®, Manajemen Kekayaan dan praktisi soft skills bersertifikat — didukung pengalaman mendalam di BFSI dan konsultasi.",
     "home.why.p2t": "Fleksibel & Adaptif",
-    "home.why.p2d": "Program yang dapat dikustomisasi sesuai budaya organisasi dan kebutuhan bisnis terkini — praktis, relevan, dan langsung dapat diterapkan.",
+    "home.why.p2d": "Program yang dapat dikustomisasi sesuai budaya organisasi dan kebutuhan bisnis terkini — praktis, relevan dan langsung dapat diterapkan.",
 
     // Homepage — FeaturedPrograms
     "home.programs.label": "Program Unggulan",
@@ -155,18 +155,18 @@ const T: Record<Lang, Record<string, string>> = {
 
     // Homepage — CRM ACT
     "home.crm.label": "Solusi Digital Unggulan",
-    "home.crm.desc": "CRM ACT membantu bank mengontrol eksekusi penjualan dari aktivitas harian di lapangan hingga keputusan manajemen melalui metodologi ACT, visibilitas mobile, dan kecerdasan AI yang terkelola.",
+    "home.crm.desc": "CRM ACT membantu bank mengontrol eksekusi penjualan dari aktivitas harian di lapangan hingga keputusan manajemen melalui metodologi ACT, visibilitas mobile dan kecerdasan AI yang terkelola.",
     "home.crm.cta1": "Jelajahi CRM ACT",
     "home.crm.cta2": "Minta Demo",
     "home.crm.f0": "Kontrol eksekusi penjualan perbankan — dari aktivitas harian hingga dashboard eksekutif",
-    "home.crm.f1": "Visibilitas lapangan-ke-dewan direksi berbasis mobile untuk penjualan, pemimpin, dan eksekutif",
+    "home.crm.f1": "Visibilitas lapangan-ke-dewan direksi berbasis mobile untuk penjualan, pemimpin dan eksekutif",
     "home.crm.f2": "Rekomendasi AI yang terkelola — manusia menyetujui. RBAC, log audit, masking, siap SSO",
     "home.crm.f3": "Adopsi bertahap: discovery → prototipe → pilot → MVP → peluncuran",
 
     // Homepage — Clients
     "home.clients.label": "Klien & Mitra",
     "home.clients.h2": "Dipercaya oleh berbagai industri",
-    "home.clients.body": "Dari perbankan dan asuransi hingga telekomunikasi, BUMN, dan perusahaan korporat di seluruh Indonesia.",
+    "home.clients.body": "Dari perbankan dan asuransi hingga telekomunikasi, BUMN dan perusahaan korporat di seluruh Indonesia.",
     "home.clients.note": "Logo dan nama klien ditampilkan untuk portofolio dan kredibilitas sesuai izin yang berlaku.",
 
     // Homepage — Leadership
@@ -184,7 +184,7 @@ const T: Record<Lang, Record<string, string>> = {
     "home.cta.label": "Mari Mulai",
     "home.cta.h2a": "Siap meningkatkan",
     "home.cta.h2b": "kinerja SDM Anda?",
-    "home.cta.body": "Mari rancang solusi pembelajaran yang praktis, relevan, dan terukur untuk organisasi Anda.",
+    "home.cta.body": "Mari rancang solusi pembelajaran yang praktis, relevan dan terukur untuk organisasi Anda.",
     "home.cta.primary": "Jadwalkan Konsultasi Strategis",
     "home.cta.secondary": "WhatsApp Primera",
     "home.cta.note": "Respons tipikal dalam dua jam kerja",

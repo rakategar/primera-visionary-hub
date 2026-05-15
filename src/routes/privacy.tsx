@@ -20,11 +20,11 @@ function PrivacyPage() {
           <h2 className="font-display text-2xl uppercase tracking-wide pt-4">How We Use Your Information</h2>
           <p>To respond to your enquiry, schedule consultations, and share relevant insights you have requested. We do not sell your data to third parties.</p>
           <h2 className="font-display text-2xl uppercase tracking-wide pt-4">Storage</h2>
-          <p>Form submissions are stored securely and only accessible to the Primera advisory team. You may request deletion at any time by emailing info@prmrsinergia.com.</p>
+          <p>Form submissions are stored securely and only accessible to the Primera advisory team. You may request deletion at any time by emailing info@primerasinergia.co.id.</p>
           <h2 className="font-display text-2xl uppercase tracking-wide pt-4">Cookies & Analytics</h2>
           <p>We may use privacy-friendly analytics to understand site performance. No personally identifying information is shared with third-party advertisers.</p>
           <h2 className="font-display text-2xl uppercase tracking-wide pt-4">Contact</h2>
-          <p>For privacy questions, contact info@prmrsinergia.com.</p>
+          <p>For privacy questions, contact info@primerasinergia.co.id.</p>
         </div>
         <Link to="/" className="mt-12 inline-flex text-sm underline underline-offset-4">← Back home</Link>
       </div>

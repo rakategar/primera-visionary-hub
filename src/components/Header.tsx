@@ -107,6 +107,8 @@ export function Header() {
           {NAV.map((n) => {
             const sub = SUBMENUS[n.to];
             const isTrigger = !!sub;
+            const isActive = n.to === "/" ? loc.pathname === "/" : loc.pathname.startsWith(n.to);
+            const activeClass = isActive ? "font-semibold !text-gold" : "";
             return (
               <div key={n.to} className="relative" onMouseEnter={() => setHover(n.to)}>
                 {isTrigger ? (
@@ -115,7 +117,7 @@ export function Header() {
                     onClick={() => setHover(hover === n.to ? null : n.to)}
                     aria-haspopup="menu"
                     aria-expanded={hover === n.to}
-                    className={`px-3.5 py-2 text-[13px] font-medium transition-colors gold-underline ${linkColor}`}
+                    className={`px-3.5 py-2 text-[13px] font-medium transition-colors gold-underline ${linkColor} ${activeClass}`}
                   >
                     {t(`nav.${n.to}`)}
                   </button>
@@ -154,8 +156,8 @@ export function Header() {
             to="/contact"
             className={`hidden sm:inline-flex items-center gap-1.5 rounded-full px-4 md:px-5 py-2.5 text-xs md:text-[13px] font-semibold transition-all border ${
               transparent
-                ? "bg-gold text-navy border-gold hover:bg-white hover:border-white"
-                : "bg-gradient-to-r from-navy to-charcoal dark:from-gold dark:to-gold/80 text-white dark:text-navy border-gold/30 hover:shadow-lg hover:-translate-y-0.5"
+                ? "bg-gold text-navy border-gold hover:bg-cream hover:border-cream dark:hover:bg-gold/70 dark:hover:border-gold/70"
+                : "bg-gradient-to-r from-navy to-charcoal dark:from-gold dark:to-gold/80 text-white dark:text-navy border-gold/30 hover:opacity-90 hover:shadow-lg hover:-translate-y-0.5"
             }`}
           >
             {t("header.cta")} <ArrowUpRight className="h-3.5 w-3.5" />

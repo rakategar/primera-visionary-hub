@@ -107,10 +107,10 @@ function Hero() {
 
           <Reveal delay={0.18}>
             <div className="mt-9 flex flex-wrap gap-3">
-              <Link to="/contact" className="group inline-flex items-center gap-2 rounded-full bg-gold text-navy px-6 py-3.5 text-sm font-bold hover:bg-white hover:-translate-y-0.5 transition shadow-xl shadow-gold/25">
+              <Link to="/contact" className="group inline-flex items-center gap-2 rounded-full bg-gold text-navy px-6 py-3.5 text-sm font-bold hover:bg-cream dark:hover:bg-gold/70 hover:-translate-y-0.5 transition shadow-xl shadow-gold/25">
                 {t("home.hero.cta1")} <ArrowRight className="h-4 w-4 transition group-hover:translate-x-1" />
               </Link>
-              <Link to="/services" className="inline-flex items-center gap-2 rounded-full border-2 border-white/40 bg-white/5 backdrop-blur text-white px-6 py-3.5 text-sm font-semibold hover:bg-white hover:text-navy transition">
+              <Link to="/services" className="inline-flex items-center gap-2 rounded-full border-2 border-white/40 bg-white/5 backdrop-blur text-white px-6 py-3.5 text-sm font-semibold hover:bg-white/20 dark:hover:bg-white/15 transition">
                 {t("home.hero.cta2")} <ArrowUpRight className="h-4 w-4" />
               </Link>
             </div>
@@ -447,7 +447,7 @@ function CrmAct() {
               </ul>
 
               <div className="mt-10 flex flex-wrap gap-3">
-                <Link to="/products/crm-act" className="group inline-flex items-center gap-2 rounded-full bg-gold text-navy px-6 py-3.5 text-sm font-bold hover:bg-white transition">
+                <Link to="/products/crm-act" className="group inline-flex items-center gap-2 rounded-full bg-gold text-navy px-6 py-3.5 text-sm font-bold hover:bg-cream dark:hover:bg-gold/70 transition">
                   {t("home.crm.cta1")} <ArrowRight className="h-4 w-4 transition group-hover:translate-x-1" />
                 </Link>
                 <a href={SITE.crmDemoUrl} target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-2 rounded-full border border-white/30 px-6 py-3.5 text-sm font-semibold hover:border-gold hover:text-gold transition">
@@ -666,7 +666,7 @@ function FinalCta() {
             {t("home.cta.body")}
           </p>
           <div className="mt-10 flex flex-wrap gap-3 justify-center">
-            <Link to="/contact" className="group inline-flex items-center gap-2 rounded-full bg-gold text-navy px-7 py-4 text-sm font-bold hover:bg-white transition">
+            <Link to="/contact" className="group inline-flex items-center gap-2 rounded-full bg-gold text-navy px-7 py-4 text-sm font-bold hover:bg-cream dark:hover:bg-gold/70 transition">
               <Calendar className="h-4 w-4" /> {t("home.cta.primary")}
               <ArrowUpRight className="h-4 w-4 transition group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
             </Link>

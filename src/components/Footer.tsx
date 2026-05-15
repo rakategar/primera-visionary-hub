@@ -69,7 +69,7 @@ export function Footer() {
               <a href={`mailto:${SITE.email}`} className="flex gap-3 hover:text-gold transition"><Mail className="h-4 w-4 mt-0.5 text-gold shrink-0" />{SITE.email}</a>
               <a href={`tel:${SITE.phoneOki.replace(/\s/g,"")}`} className="flex gap-3 hover:text-gold transition"><Phone className="h-4 w-4 mt-0.5 text-gold shrink-0" />{SITE.phoneOki}</a>
             </div>
-            <Link to="/contact" className="mt-6 inline-flex items-center gap-1.5 rounded-full bg-gold text-navy px-5 py-2.5 text-xs font-semibold hover:bg-white transition">
+            <Link to="/contact" className="mt-6 inline-flex items-center gap-1.5 rounded-full bg-gold text-navy px-5 py-2.5 text-xs font-semibold hover:bg-cream dark:hover:bg-gold/70 transition">
               {t("footer.cta")} <ArrowUpRight className="h-3.5 w-3.5" />
             </Link>
           </div>

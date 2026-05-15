@@ -3,7 +3,7 @@ export const SITE = {
   short: "Primera",
   tagline: "Empowering People. Elevating Performance.",
   positioning: "Business Management & People Development Consulting Firm",
-  email: "info@prmrsinergia.com",
+  email: "info@primerasinergia.co.id",
   phoneOki: "+62 818 651 975",
   whatsapp: "62818651975",
   address:
@@ -15,8 +15,8 @@ export const SITE = {
 };
 
 export const CONTACTS = [
-  { name: "Oki T. Wikan", role: "Director", phone: "081381088910", email: "oki.wikan@prmrsinergia.com" },
-  { name: "Arike Agung", role: "Senior Advisor", phone: "08118675004", email: "arike.agung@prmrsinergia.com" },
+  { name: "Oki T. Wikan", role: "Director", phone: "081381088910", email: "oki.wikan@primerasinergia.co.id" },
+  { name: "Arike Agung", role: "Senior Advisor", phone: "08118675004", email: "arike.agung@primerasinergia.co.id" },
   { name: "Erica", role: "Client Relations", phone: "08111398880", email: "erica.naibaho@gmail.com" },
 ];
 
