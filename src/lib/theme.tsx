@@ -22,6 +22,8 @@ export function ThemeProvider({ children }: { children: React.ReactNode }) {
 
   useEffect(() => {
     const saved = (localStorage.getItem("pks-theme") || "dark") as Theme;
+    document.documentElement.classList.remove("dark", "light");
+    document.documentElement.classList.add(saved);
     setThemeState(saved);
   }, []);
 

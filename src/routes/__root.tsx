@@ -48,7 +48,7 @@ function RootShell({ children }: { children: React.ReactNode }) {
       <head>
         <HeadContent />
         {/* Apply saved theme before first paint to avoid flash */}
-        <script dangerouslySetInnerHTML={{ __html: `(function(){var t=localStorage.getItem('pks-theme')||'dark';document.documentElement.classList.add(t);})();` }} />
+        <script dangerouslySetInnerHTML={{ __html: `(function(){var t=localStorage.getItem('pks-theme')||'dark';document.documentElement.classList.remove('dark','light');document.documentElement.classList.add(t);})();` }} />
       </head>
       <body><div id="app">{children}</div><Scripts /></body>
     </html>

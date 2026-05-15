@@ -1,7 +1,7 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { useState, type FormEvent } from "react";
 import { z } from "zod";
-import { Mail, Phone, MapPin, MessageCircle, CheckCircle2, ArrowRight } from "lucide-react";
+import { Mail, MapPin, MessageCircle, CheckCircle2, ArrowRight } from "lucide-react";
 import contactImg from "@/assets/contact-meeting.jpg";
 import { SITE } from "@/lib/site";
 import { Reveal } from "@/components/Reveal";
@@ -109,9 +109,6 @@ function ContactPage() {
                       <a href={mailto} className="inline-flex items-center gap-2 rounded-full border border-line text-charcoal dark:text-cream px-6 py-3 text-sm hover:border-gold hover:text-gold transition">
                         <Mail className="h-4 w-4" /> {lang === "id" ? "Kirim Email" : "Email instead"}
                       </a>
-                      <a href={`https://wa.me/${SITE.whatsapp}`} target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-2 rounded-full border border-line text-charcoal dark:text-cream px-6 py-3 text-sm hover:border-gold hover:text-gold transition">
-                        <MessageCircle className="h-4 w-4" /> WhatsApp
-                      </a>
                     </div>
                   </form>
                 )}
@@ -133,8 +130,7 @@ function ContactPage() {
               </div>
               <div className="border-t border-cream/10 pt-5 space-y-3 text-sm">
                 <a href={`mailto:${SITE.email}`} className="flex items-center gap-3 hover:text-gold"><Mail className="h-4 w-4 text-gold" />{SITE.email}</a>
-                <a href={`tel:${SITE.phoneOki.replace(/\s/g,"")}`} className="flex items-center gap-3 hover:text-gold"><Phone className="h-4 w-4 text-gold" />{SITE.phoneOki} <span className="text-cream/45 text-xs">(Director)</span></a>
-                <a href={`https://wa.me/${SITE.whatsapp}`} target="_blank" rel="noopener noreferrer" className="flex items-center gap-3 hover:text-gold"><MessageCircle className="h-4 w-4 text-gold" />WhatsApp Business</a>
+                <a href={`https://wa.me/${SITE.whatsapp}`} target="_blank" rel="noopener noreferrer" className="flex items-center gap-3 hover:text-gold"><MessageCircle className="h-4 w-4 text-gold" />{SITE.phoneOki} <span className="text-cream/45 text-xs">(Director)</span></a>
               </div>
             </div>
           </Reveal>
