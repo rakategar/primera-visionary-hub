@@ -47,36 +47,36 @@ function ContactPage() {
 
   return (
     <>
-      <section className="bg-cream pt-24 pb-12">
+      <section className="bg-cream dark:bg-[#0f0f0f] pt-24 pb-12">
         <div className="container-x grid lg:grid-cols-12 gap-10 items-end">
           <Reveal className="lg:col-span-7">
             <SectionLabel>Contact</SectionLabel>
-            <h1 className="font-display text-6xl md:text-8xl mt-6 leading-[0.9] text-balance">Let's design your next chapter.</h1>
+            <h1 className="font-display text-6xl md:text-8xl mt-6 leading-[0.9] text-balance text-navy dark:text-cream">Let's design your next chapter.</h1>
           </Reveal>
           <Reveal delay={0.1} className="lg:col-span-5">
-            <p className="text-ink/70 leading-relaxed">
+            <p className="text-charcoal/70 dark:text-cream/65 leading-relaxed">
               Tell us about your people goals — leadership, sales, talent, or digital execution. We typically respond within two business hours.
             </p>
           </Reveal>
         </div>
       </section>
 
-      <section className="bg-cream pb-24">
+      <section className="bg-cream dark:bg-[#0f0f0f] pb-24">
         <div className="container-x grid lg:grid-cols-12 gap-8">
           <div className="lg:col-span-7">
             <Reveal>
-              <div className="rounded-3xl bg-white border border-line p-8 md:p-10 relative overflow-hidden">
+              <div className="rounded-3xl bg-white dark:bg-[#141414] border border-line p-8 md:p-10 relative overflow-hidden">
                 <div className="absolute -top-20 -right-20 h-60 w-60 rounded-full bg-gold/10 blur-3xl" />
                 {submitted ? (
                   <div className="relative text-center py-12">
                     <CheckCircle2 className="h-16 w-16 text-gold mx-auto" />
-                    <h2 className="mt-6 font-display text-3xl uppercase tracking-wide">Thank you</h2>
-                    <p className="mt-3 text-ink/70 max-w-md mx-auto">Your request has been received. A Primera advisor will respond within two business hours.</p>
+                    <h2 className="mt-6 font-display text-3xl uppercase tracking-wide text-navy dark:text-cream">Thank you</h2>
+                    <p className="mt-3 text-charcoal/70 dark:text-cream/65 max-w-md mx-auto">Your request has been received. A Primera advisor will respond within two business hours.</p>
                     <div className="mt-8 flex flex-wrap gap-3 justify-center">
-                      <a href={`https://wa.me/${SITE.whatsapp}?text=${encodeURIComponent("Hi Primera, I just submitted a consultation request.")}`} target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-2 rounded-full bg-ink text-cream px-5 py-2.5 text-sm">
+                      <a href={`https://wa.me/${SITE.whatsapp}?text=${encodeURIComponent("Hi Primera, I just submitted a consultation request.")}`} target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-2 rounded-full bg-navy dark:bg-gold text-cream dark:text-navy px-5 py-2.5 text-sm">
                         <MessageCircle className="h-4 w-4" /> Continue on WhatsApp
                       </a>
-                      <button onClick={() => { setSubmitted(false); setForm({ ...form, message: "" }); }} className="text-sm underline underline-offset-4">Send another</button>
+                      <button onClick={() => { setSubmitted(false); setForm({ ...form, message: "" }); }} className="text-sm text-charcoal dark:text-cream underline underline-offset-4">Send another</button>
                     </div>
                   </div>
                 ) : (
@@ -88,26 +88,26 @@ function ContactPage() {
                       <Field label="Company" v={form.company} on={(v) => setForm({ ...form, company: v })} />
                       <Field label="Role" v={form.role} on={(v) => setForm({ ...form, role: v })} />
                       <div>
-                        <label className="text-xs uppercase tracking-wider text-ink/60">Service Interest</label>
-                        <select value={form.interest} onChange={(e) => setForm({ ...form, interest: e.target.value })} className="mt-2 w-full rounded-xl border border-line bg-cream px-4 py-3 text-sm focus:border-ink outline-none">
+                        <label className="text-xs uppercase tracking-wider text-charcoal/60 dark:text-cream/55">Service Interest</label>
+                        <select value={form.interest} onChange={(e) => setForm({ ...form, interest: e.target.value })} className="mt-2 w-full rounded-xl border border-line bg-soft dark:bg-[#1e1e1e] text-navy dark:text-cream px-4 py-3 text-sm focus:border-gold outline-none">
                           {INTERESTS.map((i) => <option key={i}>{i}</option>)}
                         </select>
                       </div>
                     </div>
                     <Field label="Preferred Date" type="date" v={form.date} on={(v) => setForm({ ...form, date: v })} />
                     <div>
-                      <label className="text-xs uppercase tracking-wider text-ink/60">Challenge / Message *</label>
-                      <textarea required value={form.message} onChange={(e) => setForm({ ...form, message: e.target.value })} rows={5} className="mt-2 w-full rounded-xl border border-line bg-cream px-4 py-3 text-sm focus:border-ink outline-none resize-none" placeholder="Tell us about your people development priorities…" />
+                      <label className="text-xs uppercase tracking-wider text-charcoal/60 dark:text-cream/55">Challenge / Message *</label>
+                      <textarea required value={form.message} onChange={(e) => setForm({ ...form, message: e.target.value })} rows={5} className="mt-2 w-full rounded-xl border border-line bg-soft dark:bg-[#1e1e1e] text-navy dark:text-cream px-4 py-3 text-sm focus:border-gold outline-none resize-none placeholder:text-charcoal/40 dark:placeholder:text-cream/30" placeholder="Tell us about your people development priorities…" />
                     </div>
-                    <p className="text-[11px] text-ink/50">By submitting, you agree to our <a href="/privacy" className="underline">privacy policy</a>. We never share your details.</p>
+                    <p className="text-[11px] text-charcoal/50 dark:text-cream/40">By submitting, you agree to our <a href="/privacy" className="underline">privacy policy</a>. We never share your details.</p>
                     <div className="flex flex-wrap gap-3">
-                      <button type="submit" className="inline-flex items-center gap-2 rounded-full bg-ink text-cream px-6 py-3 text-sm font-medium hover:bg-charcoal transition">
+                      <button type="submit" className="inline-flex items-center gap-2 rounded-full bg-navy dark:bg-gold text-cream dark:text-navy px-6 py-3 text-sm font-medium hover:bg-charcoal dark:hover:bg-gold/80 transition">
                         Send Request <ArrowRight className="h-4 w-4" />
                       </button>
-                      <a href={mailto} className="inline-flex items-center gap-2 rounded-full border border-line px-6 py-3 text-sm hover:border-ink transition">
+                      <a href={mailto} className="inline-flex items-center gap-2 rounded-full border border-line text-charcoal dark:text-cream px-6 py-3 text-sm hover:border-gold hover:text-gold transition">
                         <Mail className="h-4 w-4" /> Email instead
                       </a>
-                      <a href={`https://wa.me/${SITE.whatsapp}`} target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-2 rounded-full border border-line px-6 py-3 text-sm hover:border-ink transition">
+                      <a href={`https://wa.me/${SITE.whatsapp}`} target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-2 rounded-full border border-line text-charcoal dark:text-cream px-6 py-3 text-sm hover:border-gold hover:text-gold transition">
                         <MessageCircle className="h-4 w-4" /> WhatsApp
                       </a>
                     </div>
@@ -121,7 +121,7 @@ function ContactPage() {
             <div className="overflow-hidden rounded-3xl">
               <img src={contactImg} alt="Indonesian consultation meeting" className="w-full h-64 object-cover" loading="lazy" />
             </div>
-            <div className="rounded-3xl bg-ink text-cream p-8 space-y-5">
+            <div className="rounded-3xl bg-navy dark:bg-[#141414] text-cream p-8 space-y-5">
               <div>
                 <SectionLabel gold>Office</SectionLabel>
                 <p className="mt-3 text-cream/80 text-sm leading-relaxed">{SITE.address}</p>
@@ -146,8 +146,8 @@ function ContactPage() {
 function Field({ label, v, on, type = "text", required }: { label: string; v: string; on: (v: string) => void; type?: string; required?: boolean }) {
   return (
     <div>
-      <label className="text-xs uppercase tracking-wider text-ink/60">{label}</label>
-      <input type={type} value={v} onChange={(e) => on(e.target.value)} required={required} className="mt-2 w-full rounded-xl border border-line bg-cream px-4 py-3 text-sm focus:border-ink outline-none" />
+      <label className="text-xs uppercase tracking-wider text-charcoal/60 dark:text-cream/55">{label}</label>
+      <input type={type} value={v} onChange={(e) => on(e.target.value)} required={required} className="mt-2 w-full rounded-xl border border-line bg-soft dark:bg-[#1e1e1e] text-navy dark:text-cream px-4 py-3 text-sm focus:border-gold outline-none" />
     </div>
   );
 }
