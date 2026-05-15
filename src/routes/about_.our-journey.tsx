@@ -2,6 +2,7 @@ import { createFileRoute } from "@tanstack/react-router";
 import { SubpageHero, SubpageCTA } from "@/components/SubpageHero";
 import { Reveal } from "@/components/Reveal";
 import { SectionLabel } from "@/components/SectionLabel";
+import { useLang } from "@/lib/i18n";
 import hero from "@/assets/contact-meeting.jpg";
 
 const imageModules = import.meta.glob("../assets/journey/*.jpg", { eager: true });
@@ -22,6 +23,7 @@ export const Route = createFileRoute("/about/our-journey")({
 });
 
 function JourneyPage() {
+  const { lang } = useLang();
   const milestones = [
     ["2021", "Primera Established", "Founded with a focus on people development and business management consulting."],
     ["2022", "Financial & Insurance Foundation", "Rooted in BFSI, financial planning, insurance advisory, and sales capability."],
@@ -32,22 +34,22 @@ function JourneyPage() {
   return (
     <>
       <SubpageHero
-        eyebrow="Our Journey"
-        title={<>Growing with organizations through <span className="italic font-serif-italic font-normal text-gold">practical learning and trusted partnerships.</span></>}
-        subtitle="Since 2021, Primera has supported organizations in developing leaders, sales professionals, facilitators, and future-ready talents through relevant programs and strategic learning experiences."
+        eyebrow={lang === "id" ? "Perjalanan Kami" : "Our Journey"}
+        title={lang === "id" ? <>Bertumbuh bersama organisasi melalui <span className="italic font-serif-italic font-normal text-gold">pembelajaran praktis dan kemitraan terpercaya.</span></> : <>Growing with organizations through <span className="italic font-serif-italic font-normal text-gold">practical learning and trusted partnerships.</span></>}
+        subtitle={lang === "id" ? "Sejak 2021, Primera telah mendukung organisasi dalam mengembangkan pemimpin, profesional penjualan, fasilitator, dan talenta siap masa depan melalui program relevan dan pengalaman pembelajaran strategis." : "Since 2021, Primera has supported organizations in developing leaders, sales professionals, facilitators, and future-ready talents through relevant programs and strategic learning experiences."}
         image={hero}
       />
 
       <section className="bg-card py-20 md:py-24">
         <div className="container-x grid lg:grid-cols-2 gap-12">
           <Reveal>
-            <SectionLabel>Our Beginning</SectionLabel>
-            <h2 className="mt-5 font-display text-3xl md:text-4xl text-navy dark:text-cream font-extrabold leading-tight">Founded in 2021 — rooted in financial and insurance sectors.</h2>
+            <SectionLabel>{lang === "id" ? "Awal Kami" : "Our Beginning"}</SectionLabel>
+            <h2 className="mt-5 font-display text-3xl md:text-4xl text-navy dark:text-cream font-extrabold leading-tight">{lang === "id" ? "Didirikan tahun 2021 — berakar di sektor keuangan dan asuransi." : "Founded in 2021 — rooted in financial and insurance sectors."}</h2>
             <p className="mt-5 text-charcoal leading-relaxed">Primera began with a focused mission: bring practitioner-led capability development to Indonesia's most demanding financial industries. From day one, every program was designed to translate learning into measurable performance.</p>
           </Reveal>
           <Reveal delay={0.1}>
-            <SectionLabel>Expanding Expertise</SectionLabel>
-            <h2 className="mt-5 font-display text-3xl md:text-4xl text-navy dark:text-cream font-extrabold leading-tight">From BFSI roots to enterprise-wide capability.</h2>
+            <SectionLabel>{lang === "id" ? "Perluasan Keahlian" : "Expanding Expertise"}</SectionLabel>
+            <h2 className="mt-5 font-display text-3xl md:text-4xl text-navy dark:text-cream font-extrabold leading-tight">{lang === "id" ? "Dari akar BFSI menuju kemampuan lintas perusahaan." : "From BFSI roots to enterprise-wide capability."}</h2>
             <p className="mt-5 text-charcoal leading-relaxed">Today our work spans leadership, sales productivity, talent assessment, consulting, facilitator enablement, and digital learning — across banking, insurance, telecom, SOE, manufacturing, and FMCG.</p>
           </Reveal>
         </div>
@@ -56,7 +58,7 @@ function JourneyPage() {
       <section className="bg-soft py-20 md:py-24">
         <div className="container-x">
           <Reveal>
-            <SectionLabel gold>Learning Culture</SectionLabel>
+            <SectionLabel gold>{lang === "id" ? "Budaya Pembelajaran" : "Learning Culture"}</SectionLabel>
             <h2 className="mt-5 font-display text-3xl md:text-5xl text-navy dark:text-cream font-extrabold max-w-4xl leading-tight">When learning becomes part of culture, growth becomes a way of life.</h2>
           </Reveal>
         </div>
@@ -65,8 +67,8 @@ function JourneyPage() {
       <section className="bg-card py-20 md:py-24">
         <div className="container-x">
           <Reveal>
-            <SectionLabel>Journey Timeline</SectionLabel>
-            <h2 className="mt-5 font-display text-3xl md:text-5xl text-navy dark:text-cream font-extrabold">Milestones along the way.</h2>
+            <SectionLabel>{lang === "id" ? "Linimasa Perjalanan" : "Journey Timeline"}</SectionLabel>
+            <h2 className="mt-5 font-display text-3xl md:text-5xl text-navy dark:text-cream font-extrabold">{lang === "id" ? "Tonggak pencapaian sepanjang perjalanan." : "Milestones along the way."}</h2>
           </Reveal>
           <div className="mt-12 relative">
             <div className="absolute left-4 md:left-1/2 top-0 bottom-0 w-px bg-gold/30" aria-hidden />
@@ -94,8 +96,8 @@ function JourneyPage() {
       <section className="bg-background py-20 md:py-28">
         <div className="container-x">
           <Reveal>
-            <SectionLabel gold>Photo Gallery</SectionLabel>
-            <h2 className="mt-5 font-display text-3xl md:text-5xl text-navy dark:text-cream font-extrabold">Moments Along the Way</h2>
+            <SectionLabel gold>{lang === "id" ? "Galeri Foto" : "Photo Gallery"}</SectionLabel>
+            <h2 className="mt-5 font-display text-3xl md:text-5xl text-navy dark:text-cream font-extrabold">{lang === "id" ? "Momen dalam Perjalanan" : "Moments Along the Way"}</h2>
             <p className="mt-4 text-charcoal max-w-2xl leading-relaxed">
               Real moments from programs, workshops, and partnerships — captured across our journey since 2021.
             </p>
@@ -118,7 +120,7 @@ function JourneyPage() {
         </div>
       </section>
 
-      <SubpageCTA title="Start Your Organization's Next Growth Chapter" label="Schedule Consultation" />
+      <SubpageCTA title={lang === "id" ? "Mulai Babak Pertumbuhan Berikutnya" : "Start Your Organization's Next Growth Chapter"} label={lang === "id" ? "Jadwalkan Konsultasi" : "Schedule Consultation"} />
     </>
   );
 }

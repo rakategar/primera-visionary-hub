@@ -3,6 +3,7 @@ import { ArrowRight } from "lucide-react";
 import impactImg from "@/assets/impact-workshop.jpg";
 import { Reveal } from "@/components/Reveal";
 import { SectionLabel } from "@/components/SectionLabel";
+import { useLang } from "@/lib/i18n";
 
 export const Route = createFileRoute("/impact")({
   head: () => ({
@@ -17,6 +18,7 @@ export const Route = createFileRoute("/impact")({
 });
 
 function ImpactPage() {
+  const { lang } = useLang();
   const levels = [
     { l: "L1", t: "Reaction", d: "How participants respond to the learning experience." },
     { l: "L2", t: "Learning", d: "What participants now know — verified through accreditation programs." },
@@ -29,9 +31,9 @@ function ImpactPage() {
       <section className="bg-cream pt-24 pb-16">
         <div className="container-x">
           <Reveal>
-            <SectionLabel>Impact</SectionLabel>
+            <SectionLabel>{lang === "id" ? "Dampak" : "Impact"}</SectionLabel>
             <h1 className="font-display text-6xl md:text-8xl mt-6 leading-[0.9] max-w-4xl text-balance">
-              Learning that becomes performance
+              {lang === "id" ? "Pembelajaran yang menjadi kinerja" : "Learning that becomes performance"}
             </h1>
             <p className="mt-8 max-w-2xl text-ink/70 leading-relaxed">
               Training is not a finish line — it's the start of a behavior journey. We design every engagement to evaluate impact up to Level 4 (Kirkpatrick).
@@ -65,8 +67,8 @@ function ImpactPage() {
       <section className="bg-ink text-cream py-24">
         <div className="container-x">
           <Reveal>
-            <SectionLabel gold>Learning-to-Performance Model</SectionLabel>
-            <h2 className="font-display text-4xl md:text-6xl mt-6 max-w-3xl leading-tight">From classroom to business outcome — without the gap.</h2>
+            <SectionLabel gold>{lang === "id" ? "Model Pembelajaran ke Kinerja" : "Learning-to-Performance Model"}</SectionLabel>
+            <h2 className="font-display text-4xl md:text-6xl mt-6 max-w-3xl leading-tight">{lang === "id" ? "Dari kelas ke hasil bisnis — tanpa jarak." : "From classroom to business outcome — without the gap."}</h2>
           </Reveal>
           <div className="mt-14 grid md:grid-cols-3 gap-px bg-cream/10 rounded-2xl overflow-hidden border border-cream/10">
             {[
@@ -86,8 +88,8 @@ function ImpactPage() {
       <section className="bg-cream py-24">
         <div className="container-x">
           <Reveal>
-            <SectionLabel>Outcome Themes</SectionLabel>
-            <h2 className="font-display text-4xl md:text-5xl mt-6 max-w-3xl">Where engagements typically create value</h2>
+            <SectionLabel>{lang === "id" ? "Tema Hasil" : "Outcome Themes"}</SectionLabel>
+            <h2 className="font-display text-4xl md:text-5xl mt-6 max-w-3xl">{lang === "id" ? "Di mana keterlibatan biasanya menciptakan nilai" : "Where engagements typically create value"}</h2>
           </Reveal>
           <div className="mt-12 grid md:grid-cols-2 lg:grid-cols-3 gap-5">
             {[
@@ -111,9 +113,9 @@ function ImpactPage() {
       <section className="bg-charcoal text-cream py-20">
         <div className="container-x text-center">
           <Reveal>
-            <h2 className="font-display text-4xl md:text-6xl">Let's measure what matters.</h2>
+            <h2 className="font-display text-4xl md:text-6xl">{lang === "id" ? "Mari ukur yang benar-benar penting." : "Let's measure what matters."}</h2>
             <Link to="/contact" className="mt-10 inline-flex items-center gap-2 rounded-full bg-gold text-ink px-6 py-3.5 text-sm font-medium hover:bg-cream transition">
-              Design an evaluation framework <ArrowRight className="h-4 w-4" />
+              {lang === "id" ? "Rancang kerangka evaluasi" : "Design an evaluation framework"} <ArrowRight className="h-4 w-4" />
             </Link>
           </Reveal>
         </div>

@@ -4,6 +4,7 @@ import { Reveal } from "@/components/Reveal";
 import { SectionLabel } from "@/components/SectionLabel";
 import { LeadershipTieredSection } from "@/components/LeadershipTieredSection";
 import { CREDENTIALS } from "@/lib/site";
+import { useLang } from "@/lib/i18n";
 import hero from "@/assets/about-leadership.jpg";
 
 export const Route = createFileRoute("/about/leadership-facilitators")({
@@ -19,6 +20,7 @@ export const Route = createFileRoute("/about/leadership-facilitators")({
 });
 
 function LeadershipPage() {
+  const { lang } = useLang();
   const expertise = [
     "Leadership Development", "Sales Productivity", "Wealth Management",
     "Financial Services", "Insurance", "Governance", "Coaching",
@@ -34,17 +36,17 @@ function LeadershipPage() {
   return (
     <>
       <SubpageHero
-        eyebrow="Leadership & Facilitators"
-        title={<>Led by experienced practitioners, advisors, and <span className="italic font-serif-italic font-normal text-gold">certified experts.</span></>}
-        subtitle="Primera is supported by professionals with deep experience in leadership, financial services, insurance, sales productivity, coaching, governance, and organizational performance."
+        eyebrow={lang === "id" ? "Kepemimpinan & Fasilitator" : "Leadership & Facilitators"}
+        title={lang === "id" ? <>Dipimpin oleh praktisi, penasihat, dan <span className="italic font-serif-italic font-normal text-gold">para ahli bersertifikat.</span></> : <>Led by experienced practitioners, advisors, and <span className="italic font-serif-italic font-normal text-gold">certified experts.</span></>}
+        subtitle={lang === "id" ? "Primera didukung oleh para profesional berpengalaman di bidang kepemimpinan, layanan keuangan, asuransi, produktivitas penjualan, coaching, tata kelola, dan kinerja organisasi." : "Primera is supported by professionals with deep experience in leadership, financial services, insurance, sales productivity, coaching, governance, and organizational performance."}
         image={hero}
       />
 
       <section className="bg-white py-20 md:py-24">
         <div className="container-x grid lg:grid-cols-12 gap-12">
           <Reveal className="lg:col-span-5">
-            <SectionLabel>Leadership Philosophy</SectionLabel>
-            <h2 className="mt-5 font-display text-3xl md:text-4xl text-navy font-extrabold leading-tight">Practitioners who understand business reality — not only classroom theory.</h2>
+            <SectionLabel>{lang === "id" ? "Filosofi Kepemimpinan" : "Leadership Philosophy"}</SectionLabel>
+            <h2 className="mt-5 font-display text-3xl md:text-4xl text-navy font-extrabold leading-tight">{lang === "id" ? "Praktisi yang memahami realitas bisnis — bukan sekadar teori kelas." : "Practitioners who understand business reality — not only classroom theory."}</h2>
           </Reveal>
           <Reveal delay={0.1} className="lg:col-span-7 text-charcoal leading-relaxed text-base md:text-[17px] space-y-5">
             <p>Our advisors and facilitators have led teams, closed deals, built distribution networks, governed financial institutions, and developed talent across Indonesia's most demanding industries.</p>
@@ -56,8 +58,8 @@ function LeadershipPage() {
       <section className="bg-soft dark:bg-[#111111] py-20 md:py-24">
         <div className="container-x">
           <Reveal>
-            <SectionLabel gold>Tim Kami</SectionLabel>
-            <h2 className="mt-5 font-display text-3xl md:text-5xl text-navy dark:text-cream font-extrabold max-w-3xl">Praktisi berpengalaman, advisor senior, dan fasilitator bersertifikat.</h2>
+            <SectionLabel gold>{lang === "id" ? "Tim Kami" : "Meet Our Team"}</SectionLabel>
+            <h2 className="mt-5 font-display text-3xl md:text-5xl text-navy dark:text-cream font-extrabold max-w-3xl">{lang === "id" ? "Praktisi berpengalaman, advisor senior, dan fasilitator bersertifikat." : "Experienced practitioners, senior advisors, and certified facilitators."}</h2>
           </Reveal>
           <div className="mt-12">
             <LeadershipTieredSection />
@@ -68,8 +70,8 @@ function LeadershipPage() {
       <section className="bg-white py-20 md:py-24">
         <div className="container-x">
           <Reveal>
-            <SectionLabel>Expertise Coverage</SectionLabel>
-            <h2 className="mt-5 font-display text-3xl md:text-5xl text-navy font-extrabold max-w-3xl">Deep capability across industries.</h2>
+            <SectionLabel>{lang === "id" ? "Cakupan Keahlian" : "Expertise Coverage"}</SectionLabel>
+            <h2 className="mt-5 font-display text-3xl md:text-5xl text-navy font-extrabold max-w-3xl">{lang === "id" ? "Kemampuan mendalam lintas industri." : "Deep capability across industries."}</h2>
           </Reveal>
           <div className="mt-10 flex flex-wrap gap-3">
             {expertise.map((e) => (
@@ -87,8 +89,8 @@ function LeadershipPage() {
       <section className="bg-navy text-white py-20 md:py-24">
         <div className="container-x">
           <Reveal>
-            <SectionLabel gold>Why Practitioner-Led Learning Matters</SectionLabel>
-            <h2 className="mt-5 font-display text-3xl md:text-5xl font-extrabold max-w-3xl">Five reasons participants and sponsors trust our facilitators.</h2>
+            <SectionLabel gold>{lang === "id" ? "Mengapa Pembelajaran Dipimpin Praktisi Penting" : "Why Practitioner-Led Learning Matters"}</SectionLabel>
+            <h2 className="mt-5 font-display text-3xl md:text-5xl font-extrabold max-w-3xl">{lang === "id" ? "Lima alasan peserta dan klien mempercayai fasilitator kami." : "Five reasons participants and sponsors trust our facilitators."}</h2>
           </Reveal>
           <div className="mt-12 grid md:grid-cols-2 lg:grid-cols-5 gap-4">
             {why.map(([t, d], i) => (
@@ -104,7 +106,7 @@ function LeadershipPage() {
         </div>
       </section>
 
-      <SubpageCTA title="Meet the Right Facilitator for Your Organization" label="Talk to Us" />
+      <SubpageCTA title={lang === "id" ? "Temukan Fasilitator yang Tepat untuk Organisasi Anda" : "Meet the Right Facilitator for Your Organization"} label={lang === "id" ? "Hubungi Kami" : "Talk to Us"} />
     </>
   );
 }

@@ -3,6 +3,7 @@ import { ArrowRight, CheckCircle2, BarChart3 } from "lucide-react";
 import { INDUSTRY_CLIENTS, INDUSTRIES } from "@/lib/site";
 import { Reveal } from "@/components/Reveal";
 import { SectionLabel } from "@/components/SectionLabel";
+import { useLang } from "@/lib/i18n";
 
 export const Route = createFileRoute("/clients")({
   head: () => ({
@@ -17,14 +18,15 @@ export const Route = createFileRoute("/clients")({
 });
 
 function ClientsPage() {
+  const { lang } = useLang();
   return (
     <>
       <section className="bg-soft pt-24 pb-16 md:pt-28">
         <div className="container-x max-w-4xl">
           <Reveal>
-            <SectionLabel gold>Clients & Success Stories</SectionLabel>
+            <SectionLabel gold>{lang === "id" ? "Klien & Kisah Sukses" : "Clients & Success Stories"}</SectionLabel>
             <h1 className="font-display text-5xl md:text-7xl mt-5 leading-[0.98] text-navy font-extrabold text-balance">
-              Trusted by organizations across industries
+              {lang === "id" ? "Dipercaya oleh organisasi lintas industri" : "Trusted by organizations across industries"}
             </h1>
             <p className="mt-6 text-navy/65 text-lg leading-relaxed max-w-2xl">
               Primera partners with leading Indonesian enterprises to build people capability, sales execution, and measurable performance impact.
@@ -36,8 +38,8 @@ function ClientsPage() {
       <section id="partners" className="bg-white py-20">
         <div className="container-x">
           <Reveal>
-            <SectionLabel>Our Partners</SectionLabel>
-            <h2 className="font-display text-3xl md:text-5xl mt-5 text-navy font-extrabold leading-[1.05]">A diverse client portfolio</h2>
+            <SectionLabel>{lang === "id" ? "Mitra Kami" : "Our Partners"}</SectionLabel>
+            <h2 className="font-display text-3xl md:text-5xl mt-5 text-navy font-extrabold leading-[1.05]">{lang === "id" ? "Portofolio klien yang beragam" : "A diverse client portfolio"}</h2>
           </Reveal>
           <div className="mt-12 grid md:grid-cols-2 lg:grid-cols-3 gap-5">
             {INDUSTRY_CLIENTS.map((g, i) => (
@@ -62,8 +64,8 @@ function ClientsPage() {
       <section id="industries" className="bg-soft py-20">
         <div className="container-x">
           <Reveal>
-            <SectionLabel gold>Industries We Serve</SectionLabel>
-            <h2 className="font-display text-3xl md:text-5xl mt-5 text-navy font-extrabold leading-[1.05]">Built for Indonesian business realities</h2>
+            <SectionLabel gold>{lang === "id" ? "Industri yang Kami Layani" : "Industries We Serve"}</SectionLabel>
+            <h2 className="font-display text-3xl md:text-5xl mt-5 text-navy font-extrabold leading-[1.05]">{lang === "id" ? "Dibangun untuk realitas bisnis Indonesia" : "Built for Indonesian business realities"}</h2>
           </Reveal>
           <div className="mt-12 grid sm:grid-cols-2 lg:grid-cols-3 gap-5">
             {INDUSTRIES.map((ind, i) => (
@@ -82,8 +84,8 @@ function ClientsPage() {
       <section id="impact" className="bg-navy text-white py-20">
         <div className="container-x grid lg:grid-cols-12 gap-10">
           <Reveal className="lg:col-span-6">
-            <SectionLabel gold>Learning Impact</SectionLabel>
-            <h2 className="font-display text-3xl md:text-5xl mt-5 leading-[1.05] font-extrabold">Measurable through Kirkpatrick Level 1–4</h2>
+            <SectionLabel gold>{lang === "id" ? "Dampak Pembelajaran" : "Learning Impact"}</SectionLabel>
+            <h2 className="font-display text-3xl md:text-5xl mt-5 leading-[1.05] font-extrabold">{lang === "id" ? "Terukur melalui Kirkpatrick Level 1–4" : "Measurable through Kirkpatrick Level 1–4"}</h2>
             <p className="mt-6 text-white/75 leading-relaxed">
               Every Primera engagement is designed with structured evaluation — from reaction and learning to behavior change and business results.
             </p>
@@ -98,12 +100,12 @@ function ClientsPage() {
           <Reveal delay={0.15} className="lg:col-span-6">
             <div className="rounded-3xl border border-gold/20 bg-white/[0.04] p-8">
               <BarChart3 className="h-8 w-8 text-gold" />
-              <p id="stories" className="mt-6 font-display text-2xl font-bold leading-snug">Success Stories</p>
+              <p id="stories" className="mt-6 font-display text-2xl font-bold leading-snug">{lang === "id" ? "Kisah Sukses" : "Success Stories"}</p>
               <p className="mt-3 text-white/70 text-sm leading-relaxed">
                 Detailed case studies with client outcomes are shared confidentially upon request, in line with client confidentiality agreements.
               </p>
               <Link to="/contact" className="mt-6 inline-flex items-center gap-2 rounded-full bg-gold text-navy px-5 py-2.5 text-sm font-bold hover:bg-cream dark:hover:bg-gold/70 transition">
-                Request Case Studies <ArrowRight className="h-4 w-4" />
+                {lang === "id" ? "Minta Studi Kasus" : "Request Case Studies"} <ArrowRight className="h-4 w-4" />
               </Link>
             </div>
           </Reveal>

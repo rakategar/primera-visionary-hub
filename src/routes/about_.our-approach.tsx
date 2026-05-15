@@ -112,7 +112,7 @@ function ApproachPage() {
       <section className="bg-navy text-white py-20 md:py-24">
         <div className="container-x">
           <Reveal>
-            <SectionLabel gold>Evaluation Model</SectionLabel>
+            <SectionLabel gold>{lang === "id" ? "Model Evaluasi" : "Evaluation Model"}</SectionLabel>
             <h2 className="mt-5 font-display text-3xl md:text-5xl font-extrabold max-w-3xl">Kirkpatrick Levels 1–4.</h2>
           </Reveal>
           <div className="mt-12 grid md:grid-cols-2 lg:grid-cols-4 gap-5">
@@ -132,8 +132,8 @@ function ApproachPage() {
       <section className="bg-white py-20 md:py-24">
         <div className="container-x grid lg:grid-cols-12 gap-12">
           <Reveal className="lg:col-span-5">
-            <SectionLabel>Why This Approach Works</SectionLabel>
-            <h2 className="mt-5 font-display text-3xl md:text-4xl text-navy font-extrabold leading-tight">Because behavior — not content — drives results.</h2>
+            <SectionLabel>{lang === "id" ? "Mengapa Pendekatan Ini Berhasil" : "Why This Approach Works"}</SectionLabel>
+            <h2 className="mt-5 font-display text-3xl md:text-4xl text-navy font-extrabold leading-tight">{lang === "id" ? "Karena perilaku — bukan konten — yang mendorong hasil." : "Because behavior — not content — drives results."}</h2>
           </Reveal>
           <ul className="lg:col-span-7 space-y-4">
             {why.map((w, i) => (
@@ -148,7 +148,7 @@ function ApproachPage() {
         </div>
       </section>
 
-      <SubpageCTA title="Design a Learning Journey With Primera" label="Schedule Consultation" />
+      <SubpageCTA title={lang === "id" ? "Rancang Perjalanan Pembelajaran Bersama Primera" : "Design a Learning Journey With Primera"} label={lang === "id" ? "Jadwalkan Konsultasi" : "Schedule Consultation"} />
     </>
   );
 }

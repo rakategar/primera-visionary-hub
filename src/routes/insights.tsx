@@ -4,6 +4,7 @@ import { ArrowRight, X } from "lucide-react";
 import { INSIGHTS } from "@/lib/site";
 import { Reveal } from "@/components/Reveal";
 import { SectionLabel } from "@/components/SectionLabel";
+import { useLang } from "@/lib/i18n";
 
 export const Route = createFileRoute("/insights")({
   head: () => ({
@@ -18,6 +19,7 @@ export const Route = createFileRoute("/insights")({
 });
 
 function InsightsPage() {
+  const { lang } = useLang();
   const [openSlug, setOpen] = useState<string | null>(null);
   const article = INSIGHTS.find((a) => a.slug === openSlug) ?? null;
   const [feature, ...rest] = INSIGHTS;
@@ -27,9 +29,9 @@ function InsightsPage() {
       <section className="bg-cream pt-24 pb-12">
         <div className="container-x">
           <Reveal>
-            <SectionLabel>Insights</SectionLabel>
+            <SectionLabel>{lang === "id" ? "Wawasan" : "Insights"}</SectionLabel>
             <h1 className="font-display text-6xl md:text-8xl mt-6 leading-[0.9] max-w-4xl text-balance">
-              Editorial perspectives for people-driven leaders
+              {lang === "id" ? "Perspektif editorial untuk pemimpin berbasis SDM" : "Editorial perspectives for people-driven leaders"}
             </h1>
           </Reveal>
         </div>

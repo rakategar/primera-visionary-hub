@@ -6,6 +6,7 @@ import contactImg from "@/assets/contact-meeting.jpg";
 import { SITE } from "@/lib/site";
 import { Reveal } from "@/components/Reveal";
 import { SectionLabel } from "@/components/SectionLabel";
+import { useLang } from "@/lib/i18n";
 
 const search = z.object({ interest: z.string().optional() });
 
@@ -25,6 +26,7 @@ export const Route = createFileRoute("/contact")({
 const INTERESTS = ["Training & Workshop", "Leadership Development", "Sales Capability", "Talent Assessment", "Facilitator Development", "CRM ACT", "Business Consulting", "Other"];
 
 function ContactPage() {
+  const { lang } = useLang();
   const { interest } = Route.useSearch();
   const [submitted, setSubmitted] = useState(false);
   const [form, setForm] = useState({
@@ -50,8 +52,8 @@ function ContactPage() {
       <section className="bg-cream dark:bg-[#0f0f0f] pt-24 pb-12">
         <div className="container-x grid lg:grid-cols-12 gap-10 items-end">
           <Reveal className="lg:col-span-7">
-            <SectionLabel>Contact</SectionLabel>
-            <h1 className="font-display text-6xl md:text-8xl mt-6 leading-[0.9] text-balance text-navy dark:text-cream">Let's design your next chapter.</h1>
+            <SectionLabel>{lang === "id" ? "Hubungi Kami" : "Contact"}</SectionLabel>
+            <h1 className="font-display text-6xl md:text-8xl mt-6 leading-[0.9] text-balance text-navy dark:text-cream">{lang === "id" ? "Mari rancang babak berikutnya bersama." : "Let's design your next chapter."}</h1>
           </Reveal>
           <Reveal delay={0.1} className="lg:col-span-5">
             <p className="text-charcoal/70 dark:text-cream/65 leading-relaxed">
@@ -70,8 +72,8 @@ function ContactPage() {
                 {submitted ? (
                   <div className="relative text-center py-12">
                     <CheckCircle2 className="h-16 w-16 text-gold mx-auto" />
-                    <h2 className="mt-6 font-display text-3xl uppercase tracking-wide text-navy dark:text-cream">Thank you</h2>
-                    <p className="mt-3 text-charcoal/70 dark:text-cream/65 max-w-md mx-auto">Your request has been received. A Primera advisor will respond within two business hours.</p>
+                    <h2 className="mt-6 font-display text-3xl uppercase tracking-wide text-navy dark:text-cream">{lang === "id" ? "Terima Kasih" : "Thank you"}</h2>
+                    <p className="mt-3 text-charcoal/70 dark:text-cream/65 max-w-md mx-auto">{lang === "id" ? "Permintaan Anda telah diterima. Advisor Primera akan merespons dalam dua jam kerja." : "Your request has been received. A Primera advisor will respond within two business hours."}</p>
                     <div className="mt-8 flex flex-wrap gap-3 justify-center">
                       <a href={`https://wa.me/${SITE.whatsapp}?text=${encodeURIComponent("Hi Primera, I just submitted a consultation request.")}`} target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-2 rounded-full bg-navy dark:bg-gold text-cream dark:text-navy px-5 py-2.5 text-sm">
                         <MessageCircle className="h-4 w-4" /> Continue on WhatsApp
@@ -102,10 +104,10 @@ function ContactPage() {
                     <p className="text-[11px] text-charcoal/50 dark:text-cream/40">By submitting, you agree to our <a href="/privacy" className="underline">privacy policy</a>. We never share your details.</p>
                     <div className="flex flex-wrap gap-3">
                       <button type="submit" className="inline-flex items-center gap-2 rounded-full bg-navy dark:bg-gold text-cream dark:text-navy px-6 py-3 text-sm font-medium hover:bg-charcoal dark:hover:bg-gold/80 transition">
-                        Send Request <ArrowRight className="h-4 w-4" />
+                        {lang === "id" ? "Kirim Permintaan" : "Send Request"} <ArrowRight className="h-4 w-4" />
                       </button>
                       <a href={mailto} className="inline-flex items-center gap-2 rounded-full border border-line text-charcoal dark:text-cream px-6 py-3 text-sm hover:border-gold hover:text-gold transition">
-                        <Mail className="h-4 w-4" /> Email instead
+                        <Mail className="h-4 w-4" /> {lang === "id" ? "Kirim Email" : "Email instead"}
                       </a>
                       <a href={`https://wa.me/${SITE.whatsapp}`} target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-2 rounded-full border border-line text-charcoal dark:text-cream px-6 py-3 text-sm hover:border-gold hover:text-gold transition">
                         <MessageCircle className="h-4 w-4" /> WhatsApp
@@ -123,7 +125,7 @@ function ContactPage() {
             </div>
             <div className="rounded-3xl bg-navy dark:bg-[#141414] text-cream p-8 space-y-5">
               <div>
-                <SectionLabel gold>Office</SectionLabel>
+                <SectionLabel gold>{lang === "id" ? "Kantor" : "Office"}</SectionLabel>
                 <p className="mt-3 text-cream/80 text-sm leading-relaxed">{SITE.address}</p>
                 <a href={SITE.mapsUrl} target="_blank" rel="noopener noreferrer" className="mt-3 inline-flex items-center gap-2 text-sm underline underline-offset-4 text-gold">
                   <MapPin className="h-4 w-4" /> Open in Maps
