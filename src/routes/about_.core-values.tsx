@@ -2,6 +2,7 @@ import { createFileRoute } from "@tanstack/react-router";
 import { SubpageHero, SubpageCTA } from "@/components/SubpageHero";
 import { Reveal } from "@/components/Reveal";
 import { SectionLabel } from "@/components/SectionLabel";
+import { useLang } from "@/lib/i18n";
 import hero from "@/assets/impact-workshop.jpg";
 
 const VALUES = [
@@ -27,12 +28,13 @@ export const Route = createFileRoute("/about/core-values")({
 });
 
 function ValuesPage() {
+  const { lang } = useLang();
   return (
     <>
       <SubpageHero
-        eyebrow="Core Values"
-        title={<>The values behind <span className="italic font-serif-italic font-normal text-gold">the way we grow people.</span></>}
-        subtitle="PRIMERA values shape how we design learning, work with clients, facilitate transformation, and deliver measurable impact."
+        eyebrow={lang === "id" ? "Nilai-Nilai Kami" : "Core Values"}
+        title={lang === "id" ? <>Nilai-nilai di balik <span className="italic font-serif-italic font-normal text-gold">cara kami mengembangkan orang.</span></> : <>The values behind <span className="italic font-serif-italic font-normal text-gold">the way we grow people.</span></>}
+        subtitle={lang === "id" ? "Nilai-nilai PRIMERA membentuk cara kami merancang pembelajaran, bekerja dengan klien, memfasilitasi transformasi, dan memberikan dampak terukur." : "PRIMERA values shape how we design learning, work with clients, facilitate transformation, and deliver measurable impact."}
         image={hero}
       />
 
@@ -40,7 +42,7 @@ function ValuesPage() {
         <div className="container-x">
           <Reveal>
             <SectionLabel gold>P · R · I · M · E · R · A</SectionLabel>
-            <h2 className="mt-5 font-display text-3xl md:text-5xl text-navy font-extrabold max-w-3xl">Seven values. One operating philosophy.</h2>
+            <h2 className="mt-5 font-display text-3xl md:text-5xl text-navy font-extrabold max-w-3xl">{lang === "id" ? "Tujuh nilai. Satu filosofi operasional." : "Seven values. One operating philosophy."}</h2>
           </Reveal>
 
           <div className="mt-14 grid md:grid-cols-2 gap-5">
@@ -64,7 +66,7 @@ function ValuesPage() {
         </div>
       </section>
 
-      <SubpageCTA title="Build a Values-Driven Learning Culture" label="Talk to Us" />
+      <SubpageCTA title={lang === "id" ? "Bangun Budaya Pembelajaran Berbasis Nilai" : "Build a Values-Driven Learning Culture"} label={lang === "id" ? "Hubungi Kami" : "Talk to Us"} />
     </>
   );
 }

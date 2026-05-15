@@ -3,6 +3,7 @@ import { SubpageHero, SubpageCTA } from "@/components/SubpageHero";
 import { Reveal } from "@/components/Reveal";
 import { SectionLabel } from "@/components/SectionLabel";
 import { CheckCircle2 } from "lucide-react";
+import { useLang } from "@/lib/i18n";
 import hero from "@/assets/programs-leadership.jpg";
 
 export const Route = createFileRoute("/about/our-approach")({
@@ -18,6 +19,7 @@ export const Route = createFileRoute("/about/our-approach")({
 });
 
 function ApproachPage() {
+  const { lang } = useLang();
   const principles = [
     ["Action Oriented", "Every participant is encouraged to act, experience and commit to applying new skills in daily work."],
     ["Experiential Learning", "We use hands-on methods, allowing participants to learn through experience, reflection, and insight."],
@@ -48,17 +50,17 @@ function ApproachPage() {
   return (
     <>
       <SubpageHero
-        eyebrow="Our Approach"
-        title={<>Learning designed for action, reflection, and <span className="italic font-serif-italic font-normal text-gold">measurable change.</span></>}
-        subtitle="Primera combines action-oriented learning, experiential methods, self-discovery, and active participation to help participants turn insight into workplace behavior."
+        eyebrow={lang === "id" ? "Pendekatan Kami" : "Our Approach"}
+        title={lang === "id" ? <>Pembelajaran dirancang untuk tindakan, refleksi, dan <span className="italic font-serif-italic font-normal text-gold">perubahan terukur.</span></> : <>Learning designed for action, reflection, and <span className="italic font-serif-italic font-normal text-gold">measurable change.</span></>}
+        subtitle={lang === "id" ? "Primera menggabungkan pembelajaran berorientasi tindakan, metode experiential, self-discovery, dan partisipasi aktif untuk membantu peserta mengubah wawasan menjadi perilaku kerja." : "Primera combines action-oriented learning, experiential methods, self-discovery, and active participation to help participants turn insight into workplace behavior."}
         image={hero}
       />
 
       <section className="bg-white py-20 md:py-24">
         <div className="container-x grid lg:grid-cols-12 gap-12">
           <Reveal className="lg:col-span-5">
-            <SectionLabel>Approach Overview</SectionLabel>
-            <h2 className="mt-5 font-display text-3xl md:text-4xl text-navy font-extrabold leading-tight">Beyond classroom delivery.</h2>
+            <SectionLabel>{lang === "id" ? "Gambaran Pendekatan" : "Approach Overview"}</SectionLabel>
+            <h2 className="mt-5 font-display text-3xl md:text-4xl text-navy font-extrabold leading-tight">{lang === "id" ? "Melampaui pembelajaran di kelas." : "Beyond classroom delivery."}</h2>
           </Reveal>
           <Reveal delay={0.1} className="lg:col-span-7 text-charcoal leading-relaxed text-base md:text-[17px] space-y-5">
             <p>Primera does not treat training as a one-time classroom activity. We design learning journeys that connect business needs, participant engagement, practical application, and measurable follow-up.</p>
@@ -70,8 +72,8 @@ function ApproachPage() {
       <section className="bg-soft py-20 md:py-24">
         <div className="container-x">
           <Reveal>
-            <SectionLabel gold>Four Learning Principles</SectionLabel>
-            <h2 className="mt-5 font-display text-3xl md:text-5xl text-navy font-extrabold">How adults actually learn.</h2>
+            <SectionLabel gold>{lang === "id" ? "Empat Prinsip Pembelajaran" : "Four Learning Principles"}</SectionLabel>
+            <h2 className="mt-5 font-display text-3xl md:text-5xl text-navy font-extrabold">{lang === "id" ? "Cara orang dewasa belajar." : "How adults actually learn."}</h2>
           </Reveal>
           <div className="mt-12 grid md:grid-cols-2 lg:grid-cols-4 gap-5">
             {principles.map(([t, d], i) => (
@@ -90,8 +92,8 @@ function ApproachPage() {
       <section className="bg-white py-20 md:py-24">
         <div className="container-x">
           <Reveal>
-            <SectionLabel>Learning-to-Performance Journey</SectionLabel>
-            <h2 className="mt-5 font-display text-3xl md:text-5xl text-navy font-extrabold max-w-3xl">A six-stage path from diagnosis to impact.</h2>
+            <SectionLabel>{lang === "id" ? "Perjalanan Pembelajaran ke Kinerja" : "Learning-to-Performance Journey"}</SectionLabel>
+            <h2 className="mt-5 font-display text-3xl md:text-5xl text-navy font-extrabold max-w-3xl">{lang === "id" ? "Enam tahap dari diagnosis menuju dampak." : "A six-stage path from diagnosis to impact."}</h2>
           </Reveal>
           <div className="mt-12 grid md:grid-cols-3 lg:grid-cols-6 gap-3">
             {journey.map(([t, d], i) => (

@@ -2,6 +2,7 @@ import { createFileRoute } from "@tanstack/react-router";
 import { SubpageHero, SubpageCTA } from "@/components/SubpageHero";
 import { Reveal } from "@/components/Reveal";
 import { SectionLabel } from "@/components/SectionLabel";
+import { useLang } from "@/lib/i18n";
 import hero from "@/assets/hero-consulting.jpg";
 
 export const Route = createFileRoute("/about/vision-mission")({
@@ -17,6 +18,7 @@ export const Route = createFileRoute("/about/vision-mission")({
 });
 
 function VMPage() {
+  const { lang } = useLang();
   const missions = [
     "Empower people and organizations to unlock their highest potential and achieve sustainable growth.",
     "Deliver innovative learning and consulting solutions that create measurable business impact.",
@@ -31,16 +33,16 @@ function VMPage() {
   return (
     <>
       <SubpageHero
-        eyebrow="Vision & Mission"
-        title={<>Guided by purpose. <span className="italic font-serif-italic font-normal text-gold">Built for sustainable growth.</span></>}
-        subtitle="Primera exists to help people and organizations unlock potential, create measurable business impact, and build a culture of excellence and integrity."
+        eyebrow={lang === "id" ? "Visi & Misi" : "Vision & Mission"}
+        title={lang === "id" ? <>Dipandu oleh tujuan. <span className="italic font-serif-italic font-normal text-gold">Dibangun untuk pertumbuhan berkelanjutan.</span></> : <>Guided by purpose. <span className="italic font-serif-italic font-normal text-gold">Built for sustainable growth.</span></>}
+        subtitle={lang === "id" ? "Primera hadir untuk membantu orang dan organisasi membuka potensi, menciptakan dampak bisnis terukur, dan membangun budaya keunggulan serta integritas." : "Primera exists to help people and organizations unlock potential, create measurable business impact, and build a culture of excellence and integrity."}
         image={hero}
       />
 
       <section className="bg-white py-20 md:py-24">
         <div className="container-x grid lg:grid-cols-12 gap-12 items-start">
           <Reveal className="lg:col-span-5">
-            <SectionLabel>Our Vision</SectionLabel>
+            <SectionLabel>{lang === "id" ? "Visi Kami" : "Our Vision"}</SectionLabel>
           </Reveal>
           <Reveal delay={0.08} className="lg:col-span-7">
             <p className="font-display text-2xl md:text-4xl text-navy font-extrabold leading-tight">
@@ -53,8 +55,8 @@ function VMPage() {
       <section className="bg-soft py-20 md:py-24">
         <div className="container-x">
           <Reveal>
-            <SectionLabel gold>Our Mission</SectionLabel>
-            <h2 className="mt-5 font-display text-3xl md:text-5xl text-navy font-extrabold">Three commitments that guide every engagement.</h2>
+            <SectionLabel gold>{lang === "id" ? "Misi Kami" : "Our Mission"}</SectionLabel>
+            <h2 className="mt-5 font-display text-3xl md:text-5xl text-navy font-extrabold">{lang === "id" ? "Tiga komitmen yang memandu setiap keterlibatan." : "Three commitments that guide every engagement."}</h2>
           </Reveal>
           <div className="mt-12 grid md:grid-cols-3 gap-5">
             {missions.map((m, i) => (
@@ -72,8 +74,8 @@ function VMPage() {
       <section className="bg-white py-20 md:py-24">
         <div className="container-x">
           <Reveal>
-            <SectionLabel>How Our Mission Works in Practice</SectionLabel>
-            <h2 className="mt-5 font-display text-3xl md:text-5xl text-navy font-extrabold max-w-3xl">Purpose translated into daily delivery.</h2>
+            <SectionLabel>{lang === "id" ? "Misi Kami dalam Praktik" : "How Our Mission Works in Practice"}</SectionLabel>
+            <h2 className="mt-5 font-display text-3xl md:text-5xl text-navy font-extrabold max-w-3xl">{lang === "id" ? "Tujuan yang diterjemahkan ke dalam pelaksanaan sehari-hari." : "Purpose translated into daily delivery."}</h2>
           </Reveal>
           <div className="mt-12 grid md:grid-cols-2 lg:grid-cols-4 gap-5">
             {practice.map(([t, d], i) => (
@@ -89,7 +91,7 @@ function VMPage() {
         </div>
       </section>
 
-      <SubpageCTA title="Discuss Your Organization's Growth Agenda" label="Schedule Consultation" />
+      <SubpageCTA title={lang === "id" ? "Diskusikan Agenda Pertumbuhan Organisasi Anda" : "Discuss Your Organization's Growth Agenda"} label={lang === "id" ? "Jadwalkan Konsultasi" : "Schedule Consultation"} />
     </>
   );
 }

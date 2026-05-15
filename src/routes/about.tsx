@@ -5,6 +5,7 @@ import { VALUES, LEADERSHIP, CREDENTIALS, SITE } from "@/lib/site";
 import { Reveal } from "@/components/Reveal";
 import { SectionLabel } from "@/components/SectionLabel";
 import { LeadershipCard } from "@/components/LeadershipCard";
+import { useLang } from "@/lib/i18n";
 import teamWismanImg from "@/assets/team-wisman.png";
 import advisorJismanImg from "@/assets/team/advisor-jisman.jpg";
 import advisorPaulaImg from "@/assets/team/advisor-paula.jpg";
@@ -32,6 +33,7 @@ export const Route = createFileRoute("/about")({
 });
 
 function AboutPage() {
+  const { lang } = useLang();
   const approach = [
     ["Action Oriented", "Every participant is encouraged to act, experience, and commit to applying new skills."],
     ["Experiential Learning", "Hands-on methods — learning through experience, reflection, and insight."],
@@ -50,9 +52,9 @@ function AboutPage() {
       <section className="bg-cream pt-20 pb-16 md:pt-28">
         <div className="container-x grid lg:grid-cols-12 gap-10 items-end">
           <Reveal className="lg:col-span-7">
-            <SectionLabel>About</SectionLabel>
+            <SectionLabel>{lang === "id" ? "Tentang Kami" : "About"}</SectionLabel>
             <h1 className="font-display text-6xl md:text-8xl mt-6 leading-[0.9] text-balance">
-              We grow people — <span className="italic font-serif-italic font-normal text-ink/70">because when people grow, everything else follows.</span>
+              {lang === "id" ? <>Kami mengembangkan orang — <span className="italic font-serif-italic font-normal text-ink/70">karena ketika orang berkembang, segalanya mengikuti.</span></> : <>We grow people — <span className="italic font-serif-italic font-normal text-ink/70">because when people grow, everything else follows.</span></>}
             </h1>
           </Reveal>
           <Reveal delay={0.15} className="lg:col-span-5">
@@ -76,13 +78,13 @@ function AboutPage() {
       <section className="bg-ink text-cream py-24">
         <div className="container-x grid md:grid-cols-2 gap-12">
           <Reveal>
-            <SectionLabel gold>Our Vision</SectionLabel>
+            <SectionLabel gold>{lang === "id" ? "Visi Kami" : "Our Vision"}</SectionLabel>
             <p className="mt-6 font-display text-3xl md:text-4xl leading-tight">
               To be the most trusted strategic partner in developing people and accelerating business growth — through excellence, innovation, and impactful execution.
             </p>
           </Reveal>
           <Reveal delay={0.1}>
-            <SectionLabel gold>Our Mission</SectionLabel>
+            <SectionLabel gold>{lang === "id" ? "Misi Kami" : "Our Mission"}</SectionLabel>
             <ol className="mt-6 space-y-4 text-cream/80">
               <li className="flex gap-3"><span className="font-display text-gold">01</span>Empower people and organizations to unlock their highest potential and achieve sustainable growth.</li>
               <li className="flex gap-3"><span className="font-display text-gold">02</span>Deliver innovative learning and consulting solutions that create measurable business impact.</li>
@@ -95,7 +97,7 @@ function AboutPage() {
       <section className="bg-cream py-24">
         <div className="container-x">
           <Reveal>
-            <SectionLabel>Core Values</SectionLabel>
+            <SectionLabel>{lang === "id" ? "Nilai-Nilai Kami" : "Core Values"}</SectionLabel>
             <h2 className="font-display text-5xl md:text-7xl mt-6 leading-[0.95]">P · R · I · M · E · R · A</h2>
           </Reveal>
           <div className="mt-14 grid md:grid-cols-2 lg:grid-cols-4 gap-5">
@@ -115,8 +117,8 @@ function AboutPage() {
       <section className="bg-charcoal text-cream py-24">
         <div className="container-x grid lg:grid-cols-2 gap-12">
           <Reveal>
-            <SectionLabel gold>Our Approach</SectionLabel>
-            <h2 className="font-display text-4xl md:text-5xl mt-6">How we design learning</h2>
+            <SectionLabel gold>{lang === "id" ? "Pendekatan Kami" : "Our Approach"}</SectionLabel>
+            <h2 className="font-display text-4xl md:text-5xl mt-6">{lang === "id" ? "Cara kami merancang pembelajaran" : "How we design learning"}</h2>
             <ul className="mt-8 space-y-5">
               {approach.map(([t, d]) => (
                 <li key={t} className="border-b border-cream/10 pb-5">
@@ -127,8 +129,8 @@ function AboutPage() {
             </ul>
           </Reveal>
           <Reveal delay={0.15}>
-            <SectionLabel gold>Why Choose Us</SectionLabel>
-            <h2 className="font-display text-4xl md:text-5xl mt-6">What sets Primera apart</h2>
+            <SectionLabel gold>{lang === "id" ? "Mengapa Pilih Kami" : "Why Choose Us"}</SectionLabel>
+            <h2 className="font-display text-4xl md:text-5xl mt-6">{lang === "id" ? "Yang membedakan Primera" : "What sets Primera apart"}</h2>
             <ul className="mt-8 space-y-5">
               {why.map(([t, d]) => (
                 <li key={t} className="flex gap-4">
@@ -147,8 +149,8 @@ function AboutPage() {
       <section className="bg-cream py-24">
         <div className="container-x">
           <Reveal>
-            <SectionLabel>Leadership</SectionLabel>
-            <h2 className="font-display text-5xl md:text-6xl mt-6 max-w-3xl">Senior advisors with board-level experience</h2>
+            <SectionLabel>{lang === "id" ? "Kepemimpinan" : "Leadership"}</SectionLabel>
+            <h2 className="font-display text-5xl md:text-6xl mt-6 max-w-3xl">{lang === "id" ? "Penasihat senior dengan pengalaman tingkat dewan" : "Senior advisors with board-level experience"}</h2>
           </Reveal>
           <div className="mt-14 grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
             {LEADERSHIP.map((p, i) => (
@@ -173,7 +175,7 @@ function AboutPage() {
             </p>
             <p className="mt-6 eyebrow text-gold">— PRIMERA</p>
             <Link to="/contact" className="mt-10 inline-flex items-center gap-2 rounded-full bg-gold text-ink px-6 py-3.5 text-sm font-medium hover:bg-cream transition">
-              Start a conversation <ArrowRight className="h-4 w-4" />
+              {lang === "id" ? "Mulai Percakapan" : "Start a conversation"} <ArrowRight className="h-4 w-4" />
             </Link>
           </Reveal>
         </div>

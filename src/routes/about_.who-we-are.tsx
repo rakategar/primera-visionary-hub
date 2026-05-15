@@ -3,6 +3,7 @@ import { SubpageHero, SubpageCTA } from "@/components/SubpageHero";
 import { Reveal } from "@/components/Reveal";
 import { SectionLabel } from "@/components/SectionLabel";
 import { CheckCircle2 } from "lucide-react";
+import { useLang } from "@/lib/i18n";
 import hero from "@/assets/hero-corporate.jpg";
 
 export const Route = createFileRoute("/about_/who-we-are")({
@@ -18,6 +19,7 @@ export const Route = createFileRoute("/about_/who-we-are")({
 });
 
 function WhoWeArePage() {
+  const { lang } = useLang();
   const helps = [
     ["Stronger Leadership Capability", "Build leaders who can think strategically, coach intentionally, and drive performance."],
     ["Better Sales Performance", "Develop consultative selling, advisory mindset, and pipeline discipline."],
@@ -33,17 +35,17 @@ function WhoWeArePage() {
   return (
     <>
       <SubpageHero
-        eyebrow="Who We Are"
-        title={<>A people development partner built for <span className="italic font-serif-italic font-normal text-gold">measurable business growth.</span></>}
-        subtitle="Primera Karya Sinergia is a business management and people development consulting firm helping organizations build high-performing teams, future-ready professionals, and sustainable performance through practical learning, coaching, recruitment, distribution, and business strategy solutions."
+        eyebrow={lang === "id" ? "Tentang Kami" : "Who We Are"}
+        title={lang === "id" ? <>Mitra pengembangan SDM untuk <span className="italic font-serif-italic font-normal text-gold">pertumbuhan bisnis yang terukur.</span></> : <>A people development partner built for <span className="italic font-serif-italic font-normal text-gold">measurable business growth.</span></>}
+        subtitle={lang === "id" ? "Primera Karya Sinergia adalah perusahaan konsultasi manajemen bisnis dan pengembangan SDM yang membantu organisasi membangun tim berkinerja tinggi, profesional siap masa depan, dan kinerja berkelanjutan melalui solusi pembelajaran praktis, pelatihan, rekrutmen, distribusi, dan strategi bisnis." : "Primera Karya Sinergia is a business management and people development consulting firm helping organizations build high-performing teams, future-ready professionals, and sustainable performance through practical learning, coaching, recruitment, distribution, and business strategy solutions."}
         image={hero}
       />
 
       <section className="bg-white py-20 md:py-24">
         <div className="container-x grid lg:grid-cols-12 gap-12">
           <Reveal className="lg:col-span-5">
-            <SectionLabel>Company Introduction</SectionLabel>
-            <h2 className="mt-5 font-display text-3xl md:text-4xl text-navy font-extrabold leading-tight">Integrated solutions for people and performance.</h2>
+            <SectionLabel>{lang === "id" ? "Pengenalan Perusahaan" : "Company Introduction"}</SectionLabel>
+            <h2 className="mt-5 font-display text-3xl md:text-4xl text-navy font-extrabold leading-tight">{lang === "id" ? "Solusi terpadu untuk SDM dan kinerja." : "Integrated solutions for people and performance."}</h2>
           </Reveal>
           <Reveal delay={0.1} className="lg:col-span-7 text-charcoal leading-relaxed text-base md:text-[17px] space-y-5">
             <p>Primera Karya Sinergia is a business management and people development consulting firm committed to delivering integrated solutions in recruitment, training, distribution and business strategy.</p>
@@ -55,7 +57,7 @@ function WhoWeArePage() {
       <section className="bg-soft py-20 md:py-24">
         <div className="container-x">
           <Reveal>
-            <SectionLabel>Our Belief</SectionLabel>
+            <SectionLabel>{lang === "id" ? "Keyakinan Kami" : "Our Belief"}</SectionLabel>
             <h2 className="mt-5 font-display text-3xl md:text-5xl text-navy font-extrabold max-w-4xl leading-tight">
               Every transformation begins with people — mindset, courage, willingness to learn, and the ability to turn learning into real business behavior.
             </h2>
@@ -66,8 +68,8 @@ function WhoWeArePage() {
       <section className="bg-white py-20 md:py-24">
         <div className="container-x">
           <Reveal>
-            <SectionLabel gold>What We Help Organizations Achieve</SectionLabel>
-            <h2 className="mt-5 font-display text-3xl md:text-5xl text-navy font-extrabold">Outcomes that matter to the business.</h2>
+            <SectionLabel gold>{lang === "id" ? "Yang Kami Bantu Capai" : "What We Help Organizations Achieve"}</SectionLabel>
+            <h2 className="mt-5 font-display text-3xl md:text-5xl text-navy font-extrabold">{lang === "id" ? "Hasil yang penting bagi bisnis." : "Outcomes that matter to the business."}</h2>
           </Reveal>
           <div className="mt-12 grid md:grid-cols-2 lg:grid-cols-4 gap-5">
             {helps.map(([t, d], i) => (
@@ -86,8 +88,8 @@ function WhoWeArePage() {
       <section className="bg-navy text-white py-20 md:py-24">
         <div className="container-x grid lg:grid-cols-12 gap-12">
           <Reveal className="lg:col-span-5">
-            <SectionLabel gold>Why Companies Trust Primera</SectionLabel>
-            <h2 className="mt-5 font-display text-3xl md:text-5xl font-extrabold leading-tight">Practitioner-led. Outcome-driven.</h2>
+            <SectionLabel gold>{lang === "id" ? "Mengapa Perusahaan Mempercayai Primera" : "Why Companies Trust Primera"}</SectionLabel>
+            <h2 className="mt-5 font-display text-3xl md:text-5xl font-extrabold leading-tight">{lang === "id" ? "Dipimpin praktisi. Berorientasi hasil." : "Practitioner-led. Outcome-driven."}</h2>
           </Reveal>
           <ul className="lg:col-span-7 grid sm:grid-cols-2 gap-5">
             {trust.map((t, i) => (
@@ -102,7 +104,7 @@ function WhoWeArePage() {
         </div>
       </section>
 
-      <SubpageCTA title="Start a Strategic Conversation" body="Tell us about your people and performance goals — we'll show you what's possible." label="Schedule Consultation" />
+      <SubpageCTA title={lang === "id" ? "Mulai Percakapan Strategis" : "Start a Strategic Conversation"} body={lang === "id" ? "Ceritakan tujuan SDM dan kinerja Anda — kami akan menunjukkan apa yang mungkin dicapai." : "Tell us about your people and performance goals — we'll show you what's possible."} label={lang === "id" ? "Jadwalkan Konsultasi" : "Schedule Consultation"} />
     </>
   );
 }
