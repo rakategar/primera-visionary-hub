@@ -3,7 +3,7 @@ import { motion } from "framer-motion";
 import {
   ArrowUpRight, ArrowRight, Users, Lightbulb, Compass, Target, Briefcase, Cpu,
   CheckCircle2, ExternalLink, Phone, Calendar, BarChart3, Shield, Sparkles,
-  ChevronRight, MessageCircle, Award, Zap,
+  ChevronRight, ChevronDown, MessageCircle, Award, Zap,
 } from "lucide-react";
 import { useState } from "react";
 import heroImg from "@/assets/hero-corporate.jpg";
@@ -13,12 +13,14 @@ import teamWismanImg from "@/assets/team-wisman.png";
 import advisorJismanImg from "@/assets/team/advisor-jisman.jpg";
 import advisorPaulaImg from "@/assets/team/advisor-paula.jpg";
 import advisorKartonoImg from "@/assets/team/advisor-kartono.jpg";
+import advisorArikeImg from "@/assets/team/advisor-arike.jpg";
 
 const TEAM_PHOTOS: Record<string, string> = {
   "Oki T. Wikan": teamWismanImg,
   "Dr. Jisman M. Lubis": advisorJismanImg,
   "Ir. Paula Sembiring": advisorPaulaImg,
   "Kartono": advisorKartonoImg,
+  "Arike Agung Widjaja": advisorArikeImg,
 };
 import {
   SITE, SERVICES, PROBLEMS, IMPACT_STEPS, PROGRAM_CATEGORIES, INDUSTRY_CLIENTS,
@@ -343,12 +345,12 @@ function FeaturedPrograms() {
         <div className="grid lg:grid-cols-12 gap-10 items-end">
           <Reveal className="lg:col-span-8">
             <SectionLabel gold>{t("home.programs.label")}</SectionLabel>
-            <h2 className="font-display text-4xl md:text-5xl lg:text-6xl mt-5 leading-[1.05] text-navy font-extrabold">
+            <h2 className="font-display text-4xl md:text-5xl lg:text-6xl mt-5 leading-[1.05] text-navy dark:text-cream font-extrabold">
               {t("home.programs.h2")}
             </h2>
           </Reveal>
           <Reveal delay={0.1} className="lg:col-span-4 lg:text-right">
-            <Link to="/programs" className="inline-flex items-center gap-2 rounded-full bg-navy text-white px-5 py-3 text-sm font-semibold hover:bg-charcoal transition">
+            <Link to="/programs" className="inline-flex items-center gap-2 rounded-full bg-navy text-white dark:bg-gold dark:text-navy px-5 py-3 text-sm font-semibold hover:bg-charcoal dark:hover:bg-gold/80 transition">
               {t("home.programs.cta")} <ArrowRight className="h-4 w-4" />
             </Link>
           </Reveal>
@@ -361,8 +363,8 @@ function FeaturedPrograms() {
               onClick={() => setTab(i)}
               className={`px-4 py-2.5 rounded-full text-xs md:text-sm font-semibold transition ${
                 tab === i
-                  ? "bg-navy text-white shadow-lg shadow-navy/20"
-                  : "bg-white border border-navy/10 text-navy/70 hover:border-navy/30 hover:text-navy"
+                  ? "bg-navy text-white dark:bg-gold dark:text-navy shadow-lg shadow-navy/20"
+                  : "bg-white dark:bg-[#1e1e1e] border border-navy/10 dark:border-white/10 text-navy/70 dark:text-cream/60 hover:border-navy/30 dark:hover:border-white/30 hover:text-navy dark:hover:text-cream"
               }`}
             >
               {c.title.replace(" Series", "")}
@@ -375,21 +377,21 @@ function FeaturedPrograms() {
           initial={{ opacity: 0, y: 12 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.45 }}
-          className="mt-8 rounded-3xl bg-white border border-navy/10 p-8 md:p-10 shadow-xl shadow-navy/5"
+          className="mt-8 rounded-3xl bg-white dark:bg-[#141414] border border-navy/10 dark:border-white/10 p-8 md:p-10 shadow-xl shadow-navy/5 dark:shadow-black/30"
         >
           <div className="grid md:grid-cols-12 gap-8">
             <div className="md:col-span-4">
-              <p className="font-serif-italic text-navy/60 text-base">{cat.tagline}</p>
-              <h3 className="mt-4 font-display text-2xl md:text-3xl text-navy font-extrabold leading-tight">{cat.title}</h3>
-              <Link to="/programs" className="mt-6 inline-flex items-center gap-1.5 text-sm font-semibold text-gold hover:text-navy transition">
+              <p className="font-serif-italic text-navy/60 dark:text-cream/50 text-base">{cat.tagline}</p>
+              <h3 className="mt-4 font-display text-2xl md:text-3xl text-navy dark:text-cream font-extrabold leading-tight">{cat.title}</h3>
+              <Link to="/programs" className="mt-6 inline-flex items-center gap-1.5 text-sm font-semibold text-gold hover:text-navy dark:hover:text-cream transition">
                 {t("home.programs.seriesCta")} <ArrowUpRight className="h-4 w-4" />
               </Link>
             </div>
             <div className="md:col-span-8 grid sm:grid-cols-2 gap-x-6 gap-y-3">
               {cat.items.slice(0, 6).map((it) => (
-                <div key={it} className="flex items-start gap-2.5 py-1.5 border-b border-navy/5">
+                <div key={it} className="flex items-start gap-2.5 py-1.5 border-b border-navy/5 dark:border-white/8">
                   <CheckCircle2 className="h-4 w-4 text-gold mt-0.5 shrink-0" />
-                  <span className="text-sm text-navy/80">{it}</span>
+                  <span className="text-sm text-navy/80 dark:text-cream/80">{it}</span>
                 </div>
               ))}
             </div>
@@ -525,10 +527,10 @@ function ClientsPartners() {
         <div className="max-w-3xl mx-auto text-center">
           <Reveal>
             <SectionLabel>{t("home.clients.label")}</SectionLabel>
-            <h2 className="font-display text-4xl md:text-5xl lg:text-6xl mt-5 leading-[1.05] text-navy font-extrabold">
+            <h2 className="font-display text-4xl md:text-5xl lg:text-6xl mt-5 leading-[1.05] text-navy dark:text-cream font-extrabold">
               {t("home.clients.h2")}
             </h2>
-            <p className="mt-6 text-navy/65 leading-relaxed text-lg">
+            <p className="mt-6 text-navy/65 dark:text-cream/55 leading-relaxed text-lg">
               {t("home.clients.body")}
             </p>
           </Reveal>
@@ -537,11 +539,11 @@ function ClientsPartners() {
         <div className="mt-14 grid md:grid-cols-2 lg:grid-cols-3 gap-5">
           {INDUSTRY_CLIENTS.map((g, i) => (
             <Reveal key={g.group} delay={i * 0.05}>
-              <div className="rounded-2xl bg-soft border border-navy/10 p-6 h-full hover:border-gold/40 transition">
+              <div className="rounded-2xl bg-soft dark:bg-[#1a1a1a] border border-navy/10 dark:border-white/10 p-6 h-full hover:border-gold/40 transition">
                 <p className="font-display text-sm uppercase tracking-wider text-gold font-bold">{g.group}</p>
                 <div className="mt-4 flex flex-wrap gap-x-3 gap-y-2">
                   {g.names.map((n) => (
-                    <span key={n} className="text-sm text-navy/75 font-medium after:content-['·'] after:ml-3 after:text-navy/30 last:after:hidden">{n}</span>
+                    <span key={n} className="text-sm text-navy/75 dark:text-cream/75 font-medium after:content-['·'] after:ml-3 after:text-navy/30 dark:after:text-cream/30 last:after:hidden">{n}</span>
                   ))}
                 </div>
               </div>
@@ -550,7 +552,7 @@ function ClientsPartners() {
         </div>
 
         <Reveal delay={0.3}>
-          <p className="mt-10 text-center text-xs text-navy/50">{t("home.clients.note")}</p>
+          <p className="mt-10 text-center text-xs text-navy/50 dark:text-cream/40">{t("home.clients.note")}</p>
         </Reveal>
       </div>
     </section>
@@ -560,28 +562,42 @@ function ClientsPartners() {
 /* ============ SECTION 9: LEADERSHIP PREVIEW ============ */
 function LeadershipPreview() {
   const { t } = useLang();
-  const featured = LEADERSHIP.slice(0, 4);
+  const director = LEADERSHIP[0];
+  const advisors = LEADERSHIP.slice(1, 5);
   return (
     <section className="bg-soft py-24 md:py-32">
       <div className="container-x">
         <div className="grid lg:grid-cols-12 gap-10 items-end">
           <Reveal className="lg:col-span-8">
             <SectionLabel gold>{t("home.leadership.label")}</SectionLabel>
-            <h2 className="font-display text-4xl md:text-5xl lg:text-6xl mt-5 leading-[1.05] text-navy font-extrabold">
+            <h2 className="font-display text-4xl md:text-5xl lg:text-6xl mt-5 leading-[1.05] text-navy dark:text-cream font-extrabold">
               {t("home.leadership.h2")}
             </h2>
           </Reveal>
-          <Reveal delay={0.1} className="lg:col-span-4 lg:text-right">
-            <Link to="/about/leadership-facilitators" className="inline-flex items-center gap-2 rounded-full border-2 border-navy/15 bg-white text-navy px-5 py-3 text-sm font-semibold hover:border-orange hover:text-orange transition">
-              {t("home.leadership.cta")} <ArrowRight className="h-4 w-4" />
-            </Link>
-          </Reveal>
         </div>
 
-        <div className="mt-14 grid sm:grid-cols-2 lg:grid-cols-4 gap-5">
-          {featured.map((p, i) => (
+        {/* Director — centered single card */}
+        <div className="mt-12 flex justify-center">
+          <div className="w-full max-w-[240px]">
+            <LeadershipCard leader={{ ...director, photo: TEAM_PHOTOS[director.name] }} />
+          </div>
+        </div>
+
+        {/* Advisors — 4-column grid */}
+        <div className="mt-6 grid sm:grid-cols-2 lg:grid-cols-4 gap-5">
+          {advisors.map((p, i) => (
             <LeadershipCard key={p.name} leader={{ ...p, photo: TEAM_PHOTOS[p.name] }} delay={i * 0.06} />
           ))}
+        </div>
+
+        {/* CTA button */}
+        <div className="mt-10 flex justify-center">
+          <Link
+            to="/about/leadership-facilitators"
+            className="inline-flex items-center gap-2 rounded-full border-2 border-navy/15 dark:border-white/15 bg-white dark:bg-[#1e1e1e] text-navy dark:text-cream px-6 py-3 text-sm font-semibold hover:border-gold hover:text-gold transition-all"
+          >
+            <ChevronDown className="h-4 w-4" /> {t("home.leadership.cta")}
+          </Link>
         </div>
       </div>
     </section>
