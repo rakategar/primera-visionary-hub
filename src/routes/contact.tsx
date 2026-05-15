@@ -131,7 +131,6 @@ function ContactPage() {
               </div>
               <div className="border-t border-cream/10 pt-5 space-y-3 text-sm">
                 <a href={`mailto:${SITE.email}`} className="flex items-center gap-3 hover:text-gold"><Mail className="h-4 w-4 text-gold" />{SITE.email}</a>
-                <a href={`tel:${SITE.phone.replace(/\s/g,"")}`} className="flex items-center gap-3 hover:text-gold"><Phone className="h-4 w-4 text-gold" />{SITE.phone}</a>
                 <a href={`tel:${SITE.phoneOki.replace(/\s/g,"")}`} className="flex items-center gap-3 hover:text-gold"><Phone className="h-4 w-4 text-gold" />{SITE.phoneOki} <span className="text-cream/45 text-xs">(Director)</span></a>
                 <a href={`https://wa.me/${SITE.whatsapp}`} target="_blank" rel="noopener noreferrer" className="flex items-center gap-3 hover:text-gold"><MessageCircle className="h-4 w-4 text-gold" />WhatsApp Business</a>
               </div>

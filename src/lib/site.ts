@@ -4,9 +4,8 @@ export const SITE = {
   tagline: "Empowering People. Elevating Performance.",
   positioning: "Business Management & People Development Consulting Firm",
   email: "info@prmrsinergia.com",
-  phone: "+62 811 8675 004",
   phoneOki: "+62 818 651 975",
-  whatsapp: "6281186750040",
+  whatsapp: "62818651975",
   address:
     "INFINITI OFFICE, BELLEZZA BSA 1st Floor Unit 106, Jl. Letjen Soepeno RT.004 RW.002, Grogol Utara, Kebayoran Lama, Jakarta Selatan, DKI Jakarta",
   mapsUrl:

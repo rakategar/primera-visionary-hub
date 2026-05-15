@@ -83,9 +83,6 @@ export function Header() {
             <a href={`mailto:${SITE.email}`} className="inline-flex items-center gap-1.5 hover:text-gold transition">
               <Mail className="h-3 w-3" /> {SITE.email}
             </a>
-            <a href={`tel:${SITE.phone.replace(/\s/g,"")}`} className="inline-flex items-center gap-1.5 hover:text-gold transition">
-              <Phone className="h-3 w-3" /> {SITE.phone}
-            </a>
           </div>
           <div className={`tracking-[0.22em] uppercase font-semibold ${transparent ? "text-white/60" : "text-navy/55 dark:text-cream/50"}`}>
             <span className="text-gold">●</span> {t("header.positioning")}
