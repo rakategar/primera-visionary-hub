@@ -389,7 +389,11 @@ export function LanguageProvider({ children }: { children: React.ReactNode }) {
 
   useEffect(() => {
     const saved = localStorage.getItem("pks-lang") as Lang | null;
-    if (saved === "id" || saved === "en") setLangState(saved);
+    if (saved === "id" || saved === "en") {
+      setLangState(saved);
+    } else {
+      localStorage.setItem("pks-lang", "id");
+    }
   }, []);
 
   const setLang = (l: Lang) => {
