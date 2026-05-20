@@ -23,13 +23,14 @@ const TEAM_PHOTOS: Record<string, string> = {
   "Arike Agung Widjaja": advisorArikeImg,
 };
 import {
-  SITE, SERVICES, PROBLEMS, IMPACT_STEPS, PROGRAM_CATEGORIES, INDUSTRY_CLIENTS,
+  SITE, SERVICES, PROBLEMS, IMPACT_STEPS, PROGRAM_CATEGORIES,
   LEADERSHIP, CREDENTIALS, INSIGHTS,
 } from "@/lib/site";
 import { useLang } from "@/lib/i18n";
 import { Reveal } from "@/components/Reveal";
 import { SectionLabel } from "@/components/SectionLabel";
 import { LeadershipCard } from "@/components/LeadershipCard";
+import { LogoMarquee } from "@/components/LogoMarquee";
 
 export const Route = createFileRoute("/")({
   head: () => ({
@@ -536,19 +537,8 @@ function ClientsPartners() {
           </Reveal>
         </div>
 
-        <div className="mt-14 grid md:grid-cols-2 lg:grid-cols-3 gap-5">
-          {INDUSTRY_CLIENTS.map((g, i) => (
-            <Reveal key={g.group} delay={i * 0.05}>
-              <div className="rounded-2xl bg-soft dark:bg-[#1a1a1a] border border-navy/10 dark:border-white/10 p-6 h-full hover:border-gold/40 transition">
-                <p className="font-display text-sm uppercase tracking-wider text-gold font-bold">{g.group}</p>
-                <div className="mt-4 flex flex-wrap gap-x-3 gap-y-2">
-                  {g.names.map((n) => (
-                    <span key={n} className="text-sm text-navy/75 dark:text-cream/75 font-medium after:content-['·'] after:ml-3 after:text-navy/30 dark:after:text-cream/30 last:after:hidden">{n}</span>
-                  ))}
-                </div>
-              </div>
-            </Reveal>
-          ))}
+        <div className="mt-14">
+          <LogoMarquee />
         </div>
 
         <Reveal delay={0.3}>
